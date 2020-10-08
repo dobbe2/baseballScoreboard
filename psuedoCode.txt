@@ -1,0 +1,5 @@
+How to code a baseball scoreboard
+Lots of moving parts, lots of calculations involved.  
+
+Start with picking 2 teams ( or One team and then one random)
+set outs, set balls, set strikes, set runs,
