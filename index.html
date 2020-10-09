@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./assets/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball Scoreboard</title>
 </head>
@@ -15,27 +17,32 @@
         <div id="away-team">Away</div>
         <div id="away-score">0</div>
         <div id="outs">outs
-            <div id="out-one">1</div>
-            <div id="out-two">2</div>
-            <div id="out-three">3</div>
+            <div class="counter-dot-empty" id="out-one"></div>
+            <div class="counter-dot-empty" id="out-two"></div>
+            <div class="counter-dot-empty" id="out-three"></div>
         </div>
         <div id="diamond">Diamond</div>
         <div id="balls">balls
-            <div id="ball-one">1</div>
-            <div id="ball-two">2</div>
-            <div id="ball-three">3</div>
-            <div id="ball-four">4</div>
+            <div class="counter-dot-empty" id="ball-one"></div>
+            <div class="counter-dot-empty" id="ball-two"></div>
+            <div class="counter-dot-empty" id="ball-three"></div>
+            <div class="counter-dot-empty" id="ball-four"></div>
         </div>
         <div id="inning">
-            <div id="top-inning">top</div>
+            <div id="top-inning"></div>
             <div id="inning-number">#</div>
             <div id="bottom-inning">bottom</div>
         </div>
         <div id="strikes">strikes
-            <div id="strike-one">1</div>
-            <div id="strike-two">2</div>
-            <div id="strike-three">3</div>
+            <div class="counter-dot-empty" id="strike-one"></div>
+            <div class="counter-dot-empty" id="strike-two"></div>
+            <div class="counter-dot-empty" id="strike-three"></div>
         </div>
+    </div>
+    <div id="actions-div">
+        <button id="add-ball" >Ball</button>
+        <button id="add-strike">Strike</button>
+        <button id="add-out">Out</button>
     </div>
 
 
