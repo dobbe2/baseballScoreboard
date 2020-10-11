@@ -1,11 +1,23 @@
+#header{
+    text-align: center;
+}
+
 .scoreboard{
     display: grid;
+    margin: 20px auto;
     grid-template-columns: 20% 10% 40% 10% 20%;
     grid-template-rows: 40% 40% 20%;
     width: 500px;
     height: 300px;
     border: 1px red solid;
     background-color: darkgreen;
+}
+
+@media (max-width: 550px){
+    .scoreboard{
+    width: 250px;
+    height: 150px;
+    }
 }
 
 #home-team{
@@ -81,24 +93,53 @@
      grid-row-end: 4;
 }
 
-#top-inning{
-    /* height: 25%; */
-    border: solid black;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
-  margin: auto;
-  transform: rotate(-135deg);
-  -webkit-transform: rotate(-135deg);
+#top-triangle{
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 50px solid yellow;
+    margin: 10px auto 0;
+}
+
+#triangle-top-empty{
+    position: relative;
+    top: 4px;
+    left: -21.5px;
+    width: 0;
+    height: 0;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-bottom: 44px solid darkgreen;
 }
 
 #inning-number{
     height: 50%;
+    font-size: 7em;
+    text-align: center;
+    color: yellow;
 }
 
-#bottom-inning{
-    height: 25%;
+#bottom-triangle{
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 50px solid yellow;
+    margin: auto;
 }
+
+#triangle-bottom-empty{
+    position: relative;
+    top: -49px;
+    left: -21.5px;
+    width: 0;
+    height: 0;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 44px solid darkgreen;
+}
+
 
 .counter-dot{
     height: 25px;
@@ -114,4 +155,56 @@
     border: 2px solid yellow;
     border-radius: 50%;
     margin: auto;
+}
+
+#diamond {
+    width: 0;
+    height: 0;
+    border: 115px solid transparent;
+    border-bottom-color: yellow;
+    position: relative;
+    top: -50px;
+    margin: -60px auto;
+  }
+  #diamond:after {
+    content: '';
+    position: absolute;
+    left: -115px;
+    top: 115px;
+    width: 0;
+    height: 0;
+    border: 115px solid transparent;
+    border-top-color: yellow;
+    margin: auto;
+  }
+  #inner-diamond {
+    width: 0;
+    height: 0;
+    border: 111px solid transparent;
+    border-bottom-color: darkgreen;
+    position: relative;
+    top: -108px;
+    left: -110.5px;
+}
+  #inner-diamond:after {
+    content: '';
+    position: absolute;
+    left: -111.5px;
+    top: 112px;
+    width: 0;
+    height: 0;
+    border: 111.5px solid transparent;
+    border-top-color: darkgreen;
+    margin: auto;
+    z-index: 1;
+  }
+
+#actions-div{
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+button{
+    margin: 10px;
 }
