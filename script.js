@@ -69,7 +69,6 @@ $(document).ready(function(){
     
 })
 
-//still figuring out how to parse this JSON return
 var settings = {
 	"async": true,
 	"crossDomain": true,
@@ -82,7 +81,11 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
+    //got access to the response, some images are not showing as of oct 11 pm, will test again tomorrow"
+    let homeTeam = response.response[27].logo;
+    $("#home-image").attr("src", homeTeam);
+    let awayTeam = response.response[20].logo;
+    $("#away-image").attr("src", awayTeam);
     console.log(response);
-    let diamondbacks = response[0].id;
-    console.log(diamondbacks)
+    console.log(response.response[21].logo)
 });
