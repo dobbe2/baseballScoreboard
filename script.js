@@ -1,11 +1,42 @@
 let homeTeam = "";
-let awwayTeam = "";
+let awayTeam = "";
 let outs = 0;
 let balls = 0;
 let strikes = 0;
+let inning = 1;
 
 $(document).ready(function(){
 
+    //create function for clearing all balls
+
+    //create a function for clearing all strikes
+
+    //set inning
+    function setInning(){
+        $("#inning-number").html(inning);
+    }
+
+    setInning();
+
+
+    function inningChange(){
+        $("#out-one").removeClass('counter-dot').addClass("counter-dot-empty")
+        $("#out-two").removeClass('counter-dot').addClass("counter-dot-empty")
+        $("#out-three").removeClass('counter-dot').addClass("counter-dot-empty");
+        if($("#triangle-top-empty").hasClass("full")){
+            $("#triangle-top-empty").addClass("triangle-top-empty").removeClass("full");
+            $("#triangle-bottom-empty").addClass("full").removeClass("triangle-bottom-empty");
+            //clear all bases
+        }else if($("#triangle-top-empty").hasClass("triangle-top-empty")){
+            //clear all bases
+            $("#triangle-top-empty").addClass("full").removeClass("triangle-top-empty")
+            $("#triangle-bottom-empty").addClass("triangle-bottom-empty").removeClass("full");
+            inning += 1
+            $("#inning-number").html(inning);
+            setInning();
+        }
+    }
+    //track pitches that are balls, 4 balls equal a walk, runner advances to first, all other forced runners advance.
     $("#add-ball").click(function(){
         if($('#ball-one').hasClass('counter-dot-empty')) {
             console.log("Ball 1")
@@ -19,6 +50,27 @@ $(document).ready(function(){
         }else if($('#ball-four').hasClass('counter-dot-empty')){
             console.log("Ball 4")
             $("#ball-four").removeClass('counter-dot-empty').addClass("counter-dot");
+            //check to see what base is open to advance all runners
+            //clear all strikes
+            setTimeout(function(){
+                if($("#first-base").hasClass("base")){
+                $("#first-base").addClass("base-on").removeClass("base");
+                }else if($("#second-base").hasClass("base")){
+                $("#second-base").addClass("base-on").removeClass("base");
+                }else if($("#third-base").hasClass("base")){
+                $("#third-base").addClass("base-on").removeClass("base");
+                }else if($("#home-plate").hasClass("base")){
+                $("#home-plate").addClass("base-on").removeClass("base");
+                //add run to correct teams score (home or away) check by inning marker arrow
+                //let home plate be .base-on for a second or two, then switch back to .base
+                }
+            }, 1000)
+            setTimeout(function(){
+            $("#ball-one").removeClass('counter-dot').addClass('counter-dot-empty');
+            $("#ball-two").removeClass('counter-dot').addClass('counter-dot-empty');
+            $("#ball-three").removeClass('counter-dot').addClass('counter-dot-empty');
+            $("#ball-four").removeClass('counter-dot').addClass('counter-dot-empty');
+            }, 1000)
         }
     })
 
@@ -49,6 +101,7 @@ $(document).ready(function(){
                     console.log("Out 3")
                     $("#out-three").removeClass('counter-dot-empty');
                     $("#out-three").addClass("counter-dot");
+                    inningChange();
                 }
             },1000)
         }
@@ -64,28 +117,36 @@ $(document).ready(function(){
         }else if($('#out-three').hasClass('counter-dot-empty')){
             console.log("Out 3")
             $("#out-three").removeClass('counter-dot-empty').addClass("counter-dot");
+            setTimeout(function(){
+                inningChange()
+            }, 1000)
+            //run change inning function;
+            //clear 3 out circles
+
         }
     })
     
+
 })
+// commented out API call during development of other portions of project, only given 100 per day free
 
-var settings = {
-	"async": true,
-	"crossDomain": true,
-	"url": "https://api-baseball.p.rapidapi.com/teams?league=1&season=2020",
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "api-baseball.p.rapidapi.com",
-		"x-rapidapi-key": "eef4bb6860mshbcdd99ffb0c7afbp140049jsn172da8baa055"
-	}
-}
+// var settings = {
+// 	"async": true,
+// 	"crossDomain": true,
+// 	"url": "https://api-baseball.p.rapidapi.com/teams?league=1&season=2020",
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "api-baseball.p.rapidapi.com",
+// 		"x-rapidapi-key": "eef4bb6860mshbcdd99ffb0c7afbp140049jsn172da8baa055"
+// 	}
+// }
 
-$.ajax(settings).done(function (response) {
-    //got access to the response, some images are not showing as of oct 11 pm, will test again tomorrow"
-    let homeTeam = response.response[27].logo;
-    $("#home-image").attr("src", homeTeam);
-    let awayTeam = response.response[20].logo;
-    $("#away-image").attr("src", awayTeam);
-    console.log(response);
-    console.log(response.response[21].logo)
-});
+// $.ajax(settings).done(function (response) {
+//     //got access to the response, some images are not showing as of oct 11 pm, will test again tomorrow"
+//     let homeTeam = response.response[27].logo;
+//     $("#home-image").attr("src", homeTeam);
+//     let awayTeam = response.response[20].logo;
+//     $("#away-image").attr("src", awayTeam);
+//     console.log(response);
+//     console.log(response.response[21].logo)
+// });

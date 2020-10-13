@@ -11,6 +11,7 @@
 <body>
     <div id="header">&#9918; Play Ball! &#9918;</div>
 
+    <div id="container">
     <div class="scoreboard">
         <div id="home-team"><img id="home-image">Home</div>
         <div id="home-score">0</div>
@@ -35,11 +36,13 @@
         </div>
         <div id="inning">
             <div id="top-triangle">
-                <div id="triangle-top-empty"></div>
+                <!-- to unlight triangle, add class "triangle-top-empty" to div below-->
+                <div id="triangle-top-empty" class="full"></div>
             </div>
-            <div id="inning-number">1</div>
+            <div id="inning-number"></div>
             <div id="bottom-triangle">
-                <div id="triangle-bottom-empty"></div>
+                <!-- to unlight triangle, add class "triangle-bottom-empty" to div below -->
+                <div id="triangle-bottom-empty" class="triangle-bottom-empty"></div>
         </div>
         </div>
         <div id="strikes">strikes
@@ -48,6 +51,7 @@
             <div class="counter-dot-empty" id="strike-three"></div>
         </div>
     </div>
+</div>
     <div id="actions-div">
         <button id="add-ball" >Ball</button>
         <button id="add-strike">Strike</button>

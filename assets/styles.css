@@ -2,6 +2,12 @@
     text-align: center;
 }
 
+#container{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+}
 .scoreboard{
     display: grid;
     margin: 20px auto;
@@ -11,14 +17,15 @@
     height: 300px;
     border: 1px red solid;
     background-color: darkgreen;
+    color: white;
 }
 
-@media (max-width: 550px){
+/* @media (max-width: 550px){
     .scoreboard{
     width: 250px;
     height: 150px;
     }
-}
+} */
 
 #home-team{
     border: 1px solid blue;
@@ -93,6 +100,11 @@
      grid-row-end: 4;
 }
 
+#home-image, #away-image{
+    width: 100px;
+    height: 100px;
+}
+
 #top-triangle{
     width: 0;
     height: 0;
@@ -102,7 +114,7 @@
     margin: 10px auto 0;
 }
 
-#triangle-top-empty{
+.triangle-top-empty{
     position: relative;
     top: 4px;
     left: -21.5px;
@@ -129,7 +141,7 @@
     margin: auto;
 }
 
-#triangle-bottom-empty{
+.triangle-bottom-empty{
     position: relative;
     top: -49px;
     left: -21.5px;
@@ -165,6 +177,35 @@
     border: 2px solid yellow;
     transform: rotate(45deg);
     margin: 42px;
+}
+
+.base {
+    width: 10px;
+    height: 10px;
+    border: 3px solid yellow;
+}
+
+.base-on{
+    width: 10px;
+    height: 10px;
+    border: 3px solid yellow;
+    background: yellow;
+}
+
+#first-base{
+    margin-left: 145px;
+}
+
+#second-base{
+    margin-top: -16px;
+}
+
+#third-base{
+    margin-top: 123px;
+}
+
+#home-plate{
+    margin: -16px 0 0 145px;
 }
 /* #diamond {
     width: 0;
