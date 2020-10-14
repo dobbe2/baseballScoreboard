@@ -27,28 +27,28 @@
     }
 } */
 
-#home-team{
+#away-team{
     border: 1px solid blue;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
 }
-#home-score{
+#away-score{
      border: 1px solid purple;
      grid-column-start: 2;
      grid-column-end: 3;
      grid-row-start: 1;
      grid-row-end: 2;
 }
-#away-team{
+#home-team{
     border: 1px solid orange;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
 }
-#away-score{
+#home-score{
      border: 1px solid dodgerblue;
      grid-column-start: 2;
      grid-column-end: 3;
@@ -130,6 +130,13 @@
     font-size: 7em;
     text-align: center;
     color: yellow;
+}
+
+#home-score, #away-score{
+    text-align: center;
+    color: white;
+    font-size: 4em;
+    padding-top: 21px;
 }
 
 #bottom-triangle{

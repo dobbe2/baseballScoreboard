@@ -1,4 +1,6 @@
 let homeTeam = "";
+let homeScore = 0;
+let awayScore = 0;
 let awayTeam = "";
 let outs = 0;
 let balls = 0;
@@ -8,8 +10,35 @@ let inning = 1;
 $(document).ready(function(){
 
     //create function for clearing all balls
+    function clearBalls(){
+        $("#ball-one").removeClass('counter-dot').addClass('counter-dot-empty');
+        $("#ball-two").removeClass('counter-dot').addClass('counter-dot-empty');
+        $("#ball-three").removeClass('counter-dot').addClass('counter-dot-empty');
+        $("#ball-four").removeClass('counter-dot').addClass('counter-dot-empty');
+    }
 
     //create a function for clearing all strikes
+    function clearStrikes(){
+        $("#strike-one").addClass("counter-dot-empty").removeClass('counter-dot');
+        $("#strike-two").addClass("counter-dot-empty").removeClass('counter-dot');
+        $("#strike-three").addClass("counter-dot-empty").removeClass('counter-dot');
+    }
+
+    //clear the bases
+    function clearBases(){
+        if($("#first-base").hasClass("base-on")){
+            $("#first-base").addClass("base").removeClass("base-on");
+            }
+            if($("#second-base").hasClass("base-on")){
+            $("#second-base").addClass("base").removeClass("base-on");
+            }
+            if($("#third-base").hasClass("base-on")){
+            $("#third-base").addClass("base").removeClass("base-on");
+            }
+            if($("#home-plate").hasClass("base-on")){
+            $("#home-plate").addClass("base").removeClass("base-on");
+    }
+}
 
     //set inning
     function setInning(){
@@ -18,6 +47,36 @@ $(document).ready(function(){
 
     setInning();
 
+    //set home score
+    function setHomeScore(){
+        $("#home-score").html(homeScore);
+    }
+    setHomeScore();
+
+    //set away score
+    function setAwayScore(){
+        $("#away-score").html(awayScore);
+    }
+
+    setAwayScore();
+
+    //add run for home or away team
+    function addRun(){
+        if($("#home-plate").hasClass("base-on") && $("#triangle-top-empty").hasClass("full")){
+            console.log("run for away team");
+            awayScore += 1
+            $("#away-score").html(awayScore);
+            setTimeout(function(){
+                $("#home-plate").removeClass("base-on").addClass("base")
+            }, 1000)
+        } else if($("#home-plate").hasClass("base-on") && $("#triangle-bottom-empty").hasClass("full")){
+            console.log("run for home team");
+            homeScore += 1
+            $("#home-score").html(homeScore);
+            setTimeout(function(){
+                $("#home-plate").removeClass("base-on").addClass("base")
+            }, 1000)
+    }}
 
     function inningChange(){
         $("#out-one").removeClass('counter-dot').addClass("counter-dot-empty")
@@ -27,6 +86,7 @@ $(document).ready(function(){
             $("#triangle-top-empty").addClass("triangle-top-empty").removeClass("full");
             $("#triangle-bottom-empty").addClass("full").removeClass("triangle-bottom-empty");
             //clear all bases
+            clearBases();
         }else if($("#triangle-top-empty").hasClass("triangle-top-empty")){
             //clear all bases
             $("#triangle-top-empty").addClass("full").removeClass("triangle-top-empty")
@@ -34,6 +94,7 @@ $(document).ready(function(){
             inning += 1
             $("#inning-number").html(inning);
             setInning();
+            clearBases();
         }
     }
     //track pitches that are balls, 4 balls equal a walk, runner advances to first, all other forced runners advance.
@@ -66,10 +127,9 @@ $(document).ready(function(){
                 }
             }, 1000)
             setTimeout(function(){
-            $("#ball-one").removeClass('counter-dot').addClass('counter-dot-empty');
-            $("#ball-two").removeClass('counter-dot').addClass('counter-dot-empty');
-            $("#ball-three").removeClass('counter-dot').addClass('counter-dot-empty');
-            $("#ball-four").removeClass('counter-dot').addClass('counter-dot-empty');
+            clearBalls();
+            clearStrikes();
+            addRun();
             }, 1000)
         }
     })
@@ -85,10 +145,8 @@ $(document).ready(function(){
             console.log("Strike 3")
             $("#strike-three").removeClass('counter-dot-empty').addClass("counter-dot");
             setTimeout(function(){
-                $("#strike-one").addClass("counter-dot-empty").removeClass('counter-dot');
-                $("#strike-two").addClass("counter-dot-empty").removeClass('counter-dot');
-                $("#strike-three").addClass("counter-dot-empty").removeClass('counter-dot');
-
+                clearStrikes();
+                clearBalls();
                 if($('#out-one').hasClass('counter-dot-empty')) {
                     console.log("Out 1")
                     $("#out-one").removeClass('counter-dot-empty')
@@ -110,13 +168,26 @@ $(document).ready(function(){
     $("#add-out").click(function(){
         if($('#out-one').hasClass('counter-dot-empty')) {
             console.log("Out 1")
-            $("#out-one").removeClass('counter-dot-empty').addClass("counter-dot")
+            $("#out-one").removeClass('counter-dot-empty').addClass("counter-dot");
+            setTimeout(function(){
+                clearStrikes();
+                clearBalls(); 
+            }, 1000)
+            
         }else if($('#out-two').hasClass('counter-dot-empty')){
             console.log("Out 2")
             $("#out-two").removeClass('counter-dot-empty').addClass("counter-dot");
+            setTimeout(function(){
+                clearStrikes();
+                clearBalls(); 
+            }, 1000)
         }else if($('#out-three').hasClass('counter-dot-empty')){
             console.log("Out 3")
             $("#out-three").removeClass('counter-dot-empty').addClass("counter-dot");
+            setTimeout(function(){
+                clearStrikes();
+                clearBalls(); 
+            }, 1000)
             setTimeout(function(){
                 inningChange()
             }, 1000)
