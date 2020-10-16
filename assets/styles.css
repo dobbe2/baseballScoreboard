@@ -15,7 +15,7 @@
     grid-template-rows: 40% 40% 20%;
     width: 500px;
     height: 300px;
-    border: 1px red solid;
+    border: 1px  rgb(0, 80, 0) solid;
     background-color: darkgreen;
     color: white;
 }
@@ -28,28 +28,28 @@
 } */
 
 #away-team{
-    border: 1px solid blue;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 #away-score{
-     border: 1px solid purple;
+     border: 1px solid  rgb(0, 80, 0);
      grid-column-start: 2;
      grid-column-end: 3;
      grid-row-start: 1;
      grid-row-end: 2;
 }
 #home-team{
-    border: 1px solid orange;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
     grid-row-end: 3;
 }
 #home-score{
-     border: 1px solid dodgerblue;
+     border: 1px solid  rgb(0, 80, 0);
      grid-column-start: 2;
      grid-column-end: 3;
      grid-row-start: 2;
@@ -59,7 +59,7 @@
 #outs{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid pink;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
      grid-column-end: 3;
      grid-row-start: 3;
@@ -67,7 +67,7 @@
     
 }
 #diamond{
-    border: 1px solid limegreen;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 3;
      grid-column-end: 5;
      grid-row-start: 1;
@@ -76,7 +76,7 @@
 #balls{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid grey;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 3;
      grid-column-end: 4;
      grid-row-start: 3;
@@ -84,7 +84,7 @@
 }
 
 #inning{
-    border: 1px solid rebeccapurple;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 5;
      grid-column-end: 6;
      grid-row-start: 1;
@@ -93,7 +93,7 @@
 #strikes{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid magenta;
+    border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 4;
      grid-column-end: 6;
      grid-row-start: 3;
@@ -127,7 +127,7 @@
 
 #inning-number{
     height: 50%;
-    font-size: 7em;
+    font-size: 6em;
     text-align: center;
     color: yellow;
 }
@@ -214,47 +214,6 @@
 #home-plate{
     margin: -16px 0 0 145px;
 }
-/* #diamond {
-    width: 0;
-    height: 0;
-    border: 115px solid transparent;
-    border-bottom-color: yellow;
-    position: relative;
-    top: -50px;
-    margin: -60px auto;
-  }
-  #diamond:after {
-    content: '';
-    position: absolute;
-    left: -115px;
-    top: 115px;
-    width: 0;
-    height: 0;
-    border: 115px solid transparent;
-    border-top-color: yellow;
-    margin: auto;
-  }
-  #inner-diamond {
-    width: 0;
-    height: 0;
-    border: 111px solid transparent;
-    border-bottom-color: darkgreen;
-    position: relative;
-    top: -108px;
-    left: -110.5px;
-}
-  #inner-diamond:after {
-    content: '';
-    position: absolute;
-    left: -111.5px;
-    top: 112px;
-    width: 0;
-    height: 0;
-    border: 111.5px solid transparent;
-    border-top-color: darkgreen;
-    margin: auto;
-    z-index: 1;
-  } */
 
 #actions-div{
     display: flex;

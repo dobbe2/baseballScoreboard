@@ -47,6 +47,21 @@ $(document).ready(function(){
 
     setInning();
 
+    function seventhInningStrech(){
+        if(inning == 7){
+            if($('input[type="checkbox"]').is(":checked")){
+                console.log("Music is on!")
+                $('audio#take-me-out')[0].play()
+            }else{
+                console.log("Music is off")
+            }
+            alert("seventh Inning strech!");
+            // $("#take-me-out").prepend("<button>pause</button>");
+            
+            // $('audio#take-me-out')[0].pause()
+        }
+    }
+
     //set home score
     function setHomeScore(){
         $("#home-score").html(homeScore);
@@ -83,6 +98,8 @@ $(document).ready(function(){
         $("#out-two").removeClass('counter-dot').addClass("counter-dot-empty")
         $("#out-three").removeClass('counter-dot').addClass("counter-dot-empty");
         if($("#triangle-top-empty").hasClass("full")){
+            //if seventh inning, sing take me out to the ball game!
+            seventhInningStrech();
             $("#triangle-top-empty").addClass("triangle-top-empty").removeClass("full");
             $("#triangle-bottom-empty").addClass("full").removeClass("triangle-bottom-empty");
             //clear all bases
