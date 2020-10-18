@@ -101,8 +101,9 @@
 }
 
 #home-image, #away-image{
-    width: 100px;
-    height: 100px;
+    width: 95px;
+    height: 95px;
+    margin: 10px 0;
 }
 
 #top-triangle{

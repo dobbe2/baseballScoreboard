@@ -75,6 +75,38 @@ $(document).ready(function(){
 
     setAwayScore();
 
+    //set base runners and remove base runners
+    function addRunnerFirst(){
+        $("#first-base").addClass("base-on").removeClass("base");
+    }
+
+    function addRunnerSecond(){
+        $("#second-base").addClass("base-on").removeClass("base");
+    }
+
+    function addRunnerThird(){
+        $("#third-base").addClass("base-on").removeClass("base");
+    }
+
+    function addRunnerHome(){
+        $("#home-plate").addClass("base-on").removeClass("base");
+    }
+
+    function removeRunnerFirst(){
+        $("#first-base").addClass("base").removeClass("base-on");
+    }
+
+    function removeRunnerSecond(){
+        $("#second-base").addClass("base").removeClass("base-on");
+    }
+
+    function removeRunnerThird(){
+        $("#third-base").addClass("base").removeClass("base-on");
+    }
+    function removeRunnerHome(){
+        $("#home-plate").addClass("base").removeClass("base-on");
+    }
+
     //add run for home or away team
     function addRun(){
         if($("#home-plate").hasClass("base-on") && $("#triangle-top-empty").hasClass("full")){
@@ -93,6 +125,7 @@ $(document).ready(function(){
             }, 1000)
     }}
 
+    //change inning
     function inningChange(){
         $("#out-one").removeClass('counter-dot').addClass("counter-dot-empty")
         $("#out-two").removeClass('counter-dot').addClass("counter-dot-empty")
@@ -132,11 +165,11 @@ $(document).ready(function(){
             //clear all strikes
             setTimeout(function(){
                 if($("#first-base").hasClass("base")){
-                $("#first-base").addClass("base-on").removeClass("base");
+                addRunnerFirst();
                 }else if($("#second-base").hasClass("base")){
-                $("#second-base").addClass("base-on").removeClass("base");
+                addRunnerSecond();
                 }else if($("#third-base").hasClass("base")){
-                $("#third-base").addClass("base-on").removeClass("base");
+                addRunnerThird();
                 }else if($("#home-plate").hasClass("base")){
                 $("#home-plate").addClass("base-on").removeClass("base");
                 //add run to correct teams score (home or away) check by inning marker arrow
@@ -214,6 +247,59 @@ $(document).ready(function(){
         }
     })
     
+    $("#single").click(function(){
+        if($("#first-base").hasClass("base")){
+            $("#first-base").addClass("base-on").removeClass("base");
+            }else if($("#second-base").hasClass("base")){
+            $("#second-base").addClass("base-on").removeClass("base");
+            }else if($("#third-base").hasClass("base")){
+            $("#third-base").addClass("base-on").removeClass("base");
+            }else if($("#home-plate").hasClass("base")){
+            $("#home-plate").addClass("base-on").removeClass("base");
+                clearBalls();
+                clearStrikes();
+                addRun();
+    }})
+
+    $("#double").click(function(){
+        //if first base, second base, and third base are empty, runner on second
+        if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRunnerSecond();
+        }
+        //if runner on first base, 2 and 3 are empty, move runners to second and third, empty 1st
+        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRunnerSecond();
+            addRunnerThird();
+            removeRunnerFirst();
+        }
+        //if runner on first and second, 3rd empty, move runners to second and third and add run, remove 1st
+        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+            addRunnerThird();
+            removeRunnerFirst();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on first and second and third, move runners to second and third and add 2 runs, remove 1st
+        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+            removeRunnerFirst();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on first and third, runners on 2nd and 3rd, add run, remove 1st
+        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+            removeRunnerFirst();
+            addRunnerSecond();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on second base, 1st and 3rd empty, add run
+
+        //if runner on second and 3rd, 1st empty, empty 3rd, add 2 runs
+
+        //if runner on 
+    })
 
 })
 // commented out API call during development of other portions of project, only given 100 per day free
@@ -230,10 +316,11 @@ $(document).ready(function(){
 // }
 
 // $.ajax(settings).done(function (response) {
+
 //     //got access to the response, some images are not showing as of oct 11 pm, will test again tomorrow"
 //     let homeTeam = response.response[27].logo;
 //     $("#home-image").attr("src", homeTeam);
-//     let awayTeam = response.response[20].logo;
+//     let awayTeam = response.response[30].logo;
 //     $("#away-image").attr("src", awayTeam);
 //     console.log(response);
 //     console.log(response.response[21].logo)
