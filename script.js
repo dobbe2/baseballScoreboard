@@ -69,6 +69,20 @@ $(document).ready(function(){
             // $('audio#take-me-out')[0].pause()
         }
     }
+
+    function gameOverTopOfNinth(){
+        if(inning == 9 && homeScore > awayScore){
+            alert("Home Team Wins!");
+            $('button').prop('disabled', true);
+        }
+    }
+
+    function gameOverBottomOfNinth(){
+        if(inning == 9 && homeScore< awayScore){
+            alert("away team wins!");
+            $('button').prop('disabled', true);
+        }
+    }
     
 //     function hitBall(){
 //         $.playSound("baseballScoreBoard/assets/sounds/woodbat.mp3");
@@ -154,11 +168,14 @@ $(document).ready(function(){
         if($("#triangle-top-empty").hasClass("full")){
             //if seventh inning, sing take me out to the ball game!
             seventhInningStrech();
+            //if ninth inning and home team is ahead, game over!
+            gameOverTopOfNinth();
             $("#triangle-top-empty").addClass("triangle-top-empty").removeClass("full");
             $("#triangle-bottom-empty").addClass("full").removeClass("triangle-bottom-empty");
             //clear all bases
             clearBases();
         }else if($("#triangle-top-empty").hasClass("triangle-top-empty")){
+            gameOverBottomOfNinth();
             //clear all bases
             $("#triangle-top-empty").addClass("full").removeClass("triangle-top-empty")
             $("#triangle-bottom-empty").addClass("triangle-bottom-empty").removeClass("full");
@@ -394,7 +411,83 @@ $(document).ready(function(){
             addRun();
         }
     })
+
+     $("#home-run").click(function(){
+        //if first base, second base, and third base are empty, add run
+        if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on first base, 2 and 3 are empty, add 2 runs, clear bases
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRun();
+            addRun();
+            clearBases();
+        }
+        //if runner on first and second, 3rd empty, add 3 runs, empty bases
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            clearBases();
+        }
+        //if runner on first and second and third, add 4 runs, remove bases, alert GRAND SLAM!
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            clearBases();
+            alert("Grand Slam!!!!")
+        }
+        //if runner on first and third, add 3 runs, remove bases
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            clearBases();
+        }
+        //if runner on second base, add 2 runs, remove bases
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            clearBases();
+        }
+        //if runner on second and 3rd, add 3 runs, remove bases
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            clearBases();
+        }
+        //if runner on 3rd, add 2 runs, remove bases
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            clearBases();
+        }
+    })
 })
+
+   
+
 $("#home-search-button").on("click", function(){
     event.preventDefault();
     let searchedHomeTeam = $("#home-team-search").val().trim();
@@ -423,6 +516,7 @@ function setAwayTeam(awayTeam){
     };
     
     $.ajax(settings).done(function (response) {
+        //add if more than one result (i.e. new york mets and yankees) choose team via prompt or other way
         console.log(response);
         $("#away-image").attr("src", response.response[0].logo)
     });}
@@ -441,6 +535,7 @@ const settings = {
 };
 
 $.ajax(settings).done(function (response) {
+    //add if more than one result (i.e. new york mets and yankees) choose team via prompt or other way
     console.log(response);
     $("#home-image").attr("src", response.response[0].logo)
 });}
