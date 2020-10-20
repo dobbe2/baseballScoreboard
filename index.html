@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./assets/styles.css">
@@ -8,52 +9,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball Scoreboard</title>
 </head>
+
 <body>
     <div id="header">&#9918; Play Ball! &#9918;</div>
+    <div class="team-search">
+        <label for="home-team-search">Home Team</label>
+        <input type="text" id="home-team-search">
+    <button type="submit" id="home-search-button">Search Home Team</button><br>
 
+    <label for="away-team-search">Away Team</label>
+        <input type="text" id="away-team-search">
+    
+    <button type="submit" id="away-search-button">Search Away Team</button>
+    </div>
     <div id="container">
-    <div class="scoreboard">
-        <div id="away-team"><img id="away-image" src="./assets/images/rays.png"></div>
-        <div id="away-score"></div>
-        <div id="home-team"><img id="home-image" src="./assets/images/mariners.png"></div>
-        <div id="home-score"></div>
-        <div id="outs">outs
-            <div class="counter-dot-empty" id="out-one"></div>
-            <div class="counter-dot-empty" id="out-two"></div>
-            <div class="counter-dot-empty" id="out-three"></div>
-        </div>
-        <div id="diamond">
-            <div class="base" id="first-base"></div>
-            <div class="base" id="second-base"></div>
-            <div class="base"id="third-base"></div>
-            <div class="base" id="home-plate"></div>
-        </div>
-        <div id="balls">balls
-            <div class="counter-dot-empty" id="ball-one"></div>
-            <div class="counter-dot-empty" id="ball-two"></div>
-            <div class="counter-dot-empty" id="ball-three"></div>
-            <div class="counter-dot-empty" id="ball-four"></div>
-        </div>
-        <div id="inning">
-            <div id="top-triangle">
-                <!-- to unlight triangle, add class "triangle-top-empty" to div below-->
-                <div id="triangle-top-empty" class="full"></div>
+        <div class="scoreboard">
+            <div id="away-team"><img id="away-image" src="./assets/images/rays.png"></div>
+            <div id="away-score"></div>
+            <div id="home-team"><img id="home-image" src="./assets/images/mariners.png"></div>
+            <div id="home-score"></div>
+            <div id="outs">outs
+                <div class="counter-dot-empty" id="out-one"></div>
+                <div class="counter-dot-empty" id="out-two"></div>
+                <div class="counter-dot-empty" id="out-three"></div>
             </div>
-            <div id="inning-number"></div>
-            <div id="bottom-triangle">
-                <!-- to unlight triangle, add class "triangle-bottom-empty" to div below -->
-                <div id="triangle-bottom-empty" class="triangle-bottom-empty"></div>
-        </div>
-        </div>
-        <div id="strikes">strikes
-            <div class="counter-dot-empty" id="strike-one"></div>
-            <div class="counter-dot-empty" id="strike-two"></div>
-            <div class="counter-dot-empty" id="strike-three"></div>
+            <div id="diamond">
+                <div class="base" id="first-base"></div>
+                <div class="base" id="second-base"></div>
+                <div class="base" id="third-base"></div>
+                <div class="base" id="home-plate"></div>
+            </div>
+            <div id="balls">balls
+                <div class="counter-dot-empty" id="ball-one"></div>
+                <div class="counter-dot-empty" id="ball-two"></div>
+                <div class="counter-dot-empty" id="ball-three"></div>
+                <div class="counter-dot-empty" id="ball-four"></div>
+            </div>
+            <div id="inning">
+                <div id="top-triangle">
+                    <!-- to unlight triangle, add class "triangle-top-empty" to div below-->
+                    <div id="triangle-top-empty" class="full"></div>
+                </div>
+                <div id="inning-number"></div>
+                <div id="bottom-triangle">
+                    <!-- to unlight triangle, add class "triangle-bottom-empty" to div below -->
+                    <div id="triangle-bottom-empty" class="triangle-bottom-empty"></div>
+                </div>
+            </div>
+            <div id="strikes">strikes
+                <div class="counter-dot-empty" id="strike-one"></div>
+                <div class="counter-dot-empty" id="strike-two"></div>
+                <div class="counter-dot-empty" id="strike-three"></div>
+            </div>
         </div>
     </div>
-</div>
     <div id="actions-div">
-        <button id="add-ball" >Ball</button>
+        <button id="add-ball">Ball</button>
         <button id="add-strike">Strike</button>
         <button id="add-out">Out</button>
         <button id="single">Single</button>
@@ -74,9 +85,10 @@
     </div>
     <audio id="take-me-out">
         <source src="./assets/sounds/TakeMeOutToTheBallgame-DocWatson.mp3" type="audio/mpeg">
-      </audio>
+    </audio>
 
 
     <script src="./script.js"></script>
 </body>
+
 </html>

@@ -8,6 +8,13 @@
     height: 100%;
 
 }
+
+.team-search{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
 .scoreboard{
     display: grid;
     margin: 20px auto;

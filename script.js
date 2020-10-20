@@ -24,6 +24,12 @@ $(document).ready(function(){
         $("#strike-three").addClass("counter-dot-empty").removeClass('counter-dot');
     }
 
+    //clear balls and strikes for new at bat
+    function resetCount(){
+        clearBalls();
+        clearStrikes();
+    }
+
     //clear the bases
     function clearBases(){
         if($("#first-base").hasClass("base-on")){
@@ -47,6 +53,8 @@ $(document).ready(function(){
 
     setInning();
 
+
+    //play 7th inning stretch
     function seventhInningStrech(){
         if(inning == 7){
             if($('input[type="checkbox"]').is(":checked")){
@@ -61,7 +69,11 @@ $(document).ready(function(){
             // $('audio#take-me-out')[0].pause()
         }
     }
-
+    
+//     function hitBall(){
+//         $.playSound("baseballScoreBoard/assets/sounds/woodbat.mp3");
+//     }
+// hitBall();
     //set home score
     function setHomeScore(){
         $("#home-score").html(homeScore);
@@ -78,33 +90,42 @@ $(document).ready(function(){
     //set base runners and remove base runners
     function addRunnerFirst(){
         $("#first-base").addClass("base-on").removeClass("base");
+        resetCount();
     }
 
     function addRunnerSecond(){
         $("#second-base").addClass("base-on").removeClass("base");
+        resetCount();
     }
 
     function addRunnerThird(){
         $("#third-base").addClass("base-on").removeClass("base");
+        resetCount();
     }
 
     function addRunnerHome(){
         $("#home-plate").addClass("base-on").removeClass("base");
+        resetCount();
     }
 
     function removeRunnerFirst(){
         $("#first-base").addClass("base").removeClass("base-on");
+        resetCount();
     }
 
     function removeRunnerSecond(){
         $("#second-base").addClass("base").removeClass("base-on");
+        resetCount();
     }
 
     function removeRunnerThird(){
         $("#third-base").addClass("base").removeClass("base-on");
+        resetCount();
+
     }
     function removeRunnerHome(){
         $("#home-plate").addClass("base").removeClass("base-on");
+        resetCount();
     }
 
     //add run for home or away team
@@ -199,16 +220,13 @@ $(document).ready(function(){
                 clearBalls();
                 if($('#out-one').hasClass('counter-dot-empty')) {
                     console.log("Out 1")
-                    $("#out-one").removeClass('counter-dot-empty')
-                    $("#out-one").addClass("counter-dot")
+                    $("#out-one").removeClass('counter-dot-empty').addClass("counter-dot")
                 }else if($('#out-two').hasClass('counter-dot-empty')){
                     console.log("Out 2")
-                    $("#out-two").removeClass('counter-dot-empty');
-                    $("#out-two").addClass("counter-dot");
+                    $("#out-two").removeClass('counter-dot-empty').addClass("counter-dot");
                 }else if($('#out-three').hasClass('counter-dot-empty')){
                     console.log("Out 3")
-                    $("#out-three").removeClass('counter-dot-empty');
-                    $("#out-three").addClass("counter-dot");
+                    $("#out-three").removeClass('counter-dot-empty').addClass("counter-dot");
                     inningChange();
                 }
             },1000)
@@ -249,15 +267,13 @@ $(document).ready(function(){
     
     $("#single").click(function(){
         if($("#first-base").hasClass("base")){
-            $("#first-base").addClass("base-on").removeClass("base");
+            addRunnerFirst();
             }else if($("#second-base").hasClass("base")){
-            $("#second-base").addClass("base-on").removeClass("base");
+            addRunnerSecond();
             }else if($("#third-base").hasClass("base")){
-            $("#third-base").addClass("base-on").removeClass("base");
+            addRunnerThird();
             }else if($("#home-plate").hasClass("base")){
-            $("#home-plate").addClass("base-on").removeClass("base");
-                clearBalls();
-                clearStrikes();
+            addRunnerHome();
                 addRun();
     }})
 
@@ -267,20 +283,20 @@ $(document).ready(function(){
             addRunnerSecond();
         }
         //if runner on first base, 2 and 3 are empty, move runners to second and third, empty 1st
-        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
             addRunnerSecond();
             addRunnerThird();
             removeRunnerFirst();
         }
         //if runner on first and second, 3rd empty, move runners to second and third and add run, remove 1st
-        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
             addRunnerThird();
             removeRunnerFirst();
             addRunnerHome();
             addRun();
         }
         //if runner on first and second and third, move runners to second and third and add 2 runs, remove 1st
-        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
             removeRunnerFirst();
             addRunnerHome();
             addRun();
@@ -288,22 +304,146 @@ $(document).ready(function(){
             addRun();
         }
         //if runner on first and third, runners on 2nd and 3rd, add run, remove 1st
-        if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
             removeRunnerFirst();
             addRunnerSecond();
             addRunnerHome();
             addRun();
         }
         //if runner on second base, 1st and 3rd empty, add run
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+            addRunnerHome();
+            addRun();
+        }
 
         //if runner on second and 3rd, 1st empty, empty 3rd, add 2 runs
-
-        //if runner on 
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+            removeRunnerThird();
+            addRunnerSecond();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on 3rd, 1st and 2nd empty, remove 3rd, add 2nd, add run
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+            removeRunnerThird();
+            addRunnerSecond();
+            addRun();
+        }
     })
 
+    $("#triple").click(function(){
+        //if first base, second base, and third base are empty, runner on third
+        if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRunnerThird();
+        }
+        //if runner on first base, 2 and 3 are empty, add runner 3rd, clear first, add run
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRunnerThird();
+            removeRunnerFirst();
+            addRun();
+        }
+        //if runner on first and second, 3rd empty, remove runner first, remove runner second, add runner third, add 2 runs
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+            addRunnerThird();
+            removeRunnerFirst();
+            removeRunnerSecond();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on first and second and third, remove first, remove second, add 3 runs
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+            removeRunnerFirst();
+            removeRunnerSecond();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on first and third, remove 1st, add 2 runs
+        else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+            removeRunnerFirst();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on second base, 1st and 3rd empty, remove 2nd base, add 3rd, add run
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base")){
+            removeRunnerSecond();
+            addRunnerThird();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on second and 3rd, 1st empty, remove 2nd, add 2 runs;
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base-on") && $("#third-base").hasClass("base-on")){
+            removeRunnerSecond();
+            addRunnerHome();
+            addRun();
+            addRunnerHome();
+            addRun();
+        }
+        //if runner on 3rd, 1st and 2nd empty, remove 2nd, add 3rd, add run
+        else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
+            addRunnerHome();
+            addRun();
+        }
+    })
 })
+$("#home-search-button").on("click", function(){
+    event.preventDefault();
+    let searchedHomeTeam = $("#home-team-search").val().trim();
+    setHomeTeam(searchedHomeTeam);
+})
+
+$("#away-search-button").on("click", function(){
+    event.preventDefault();
+    let searchedAwayTeam = $("#away-team-search").val().trim();
+    setAwayTeam(searchedAwayTeam);
+})
+
 // commented out API call during development of other portions of project, only given 100 per day free
 
+function setAwayTeam(awayTeam){
+    let queryTeam = awayTeam
+    const settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://rapidapi.p.rapidapi.com/teams?search=" + queryTeam,
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "api-baseball.p.rapidapi.com",
+            "x-rapidapi-key": "77ea7439bemshbd256fafb717067p139b8ejsn9c8d1de46d29"
+        }
+    };
+    
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        $("#away-image").attr("src", response.response[0].logo)
+    });}
+
+function setHomeTeam(homeTeam){
+let queryTeam = homeTeam
+const settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://rapidapi.p.rapidapi.com/teams?search=" + queryTeam,
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "api-baseball.p.rapidapi.com",
+		"x-rapidapi-key": "77ea7439bemshbd256fafb717067p139b8ejsn9c8d1de46d29"
+	}
+};
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+    $("#home-image").attr("src", response.response[0].logo)
+});}
 // var settings = {
 // 	"async": true,
 // 	"crossDomain": true,
