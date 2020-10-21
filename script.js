@@ -5,7 +5,7 @@ let awayTeam = "";
 let outs = 0;
 let balls = 0;
 let strikes = 0;
-let inning = 1;
+let inning = 8;
 
 $(document).ready(function(){
 
@@ -64,11 +64,14 @@ $(document).ready(function(){
                 console.log("Music is off")
             }
             alert("seventh Inning strech!");
-            // $("#take-me-out").prepend("<button>pause</button>");
-            
-            // $('audio#take-me-out')[0].pause()
         }
     }
+
+    $('.hit').click(function() {
+        if($('input[type="checkbox"').is(":checked")){
+        const audio = new Audio("./assets/sounds/woodbat.mp3");
+        audio.play();}
+      });
 
     function gameOverTopOfNinth(){
         if(inning == 9 && homeScore > awayScore){
@@ -78,16 +81,25 @@ $(document).ready(function(){
     }
 
     function gameOverBottomOfNinth(){
-        if(inning == 9 && homeScore< awayScore){
+        if(inning == 9 && homeScore < awayScore){
             alert("away team wins!");
+            $('button').prop('disabled', true);
+        }else if(inning == 9 && homeScore > awayScore){
+            alert("home Team wins! Walk off?");
             $('button').prop('disabled', true);
         }
     }
-    
-//     function hitBall(){
-//         $.playSound("baseballScoreBoard/assets/sounds/woodbat.mp3");
-//     }
-// hitBall();
+    //add function for extra innings on tie!
+    function extraInnings(){
+        if(inning > 9 && homeScore > awayScore){
+            alert("Home team wins in extra innings!");
+            $('button').prop('disabled', true);
+        }else if(inning > 9 && homeScore < awayScore){
+            alert("Away team wins in extra innings");
+            $("button").prop("disabled", true);
+        }
+    }
+
     //set home score
     function setHomeScore(){
         $("#home-score").html(homeScore);
@@ -176,6 +188,7 @@ $(document).ready(function(){
             clearBases();
         }else if($("#triangle-top-empty").hasClass("triangle-top-empty")){
             gameOverBottomOfNinth();
+            extraInnings();
             //clear all bases
             $("#triangle-top-empty").addClass("full").removeClass("triangle-top-empty")
             $("#triangle-bottom-empty").addClass("triangle-bottom-empty").removeClass("full");
@@ -272,7 +285,7 @@ $(document).ready(function(){
             setTimeout(function(){
                 clearStrikes();
                 clearBalls(); 
-            }, 1000)
+            }, 1000);
             setTimeout(function(){
                 inningChange()
             }, 1000)
@@ -291,7 +304,7 @@ $(document).ready(function(){
             addRunnerThird();
             }else if($("#home-plate").hasClass("base")){
             addRunnerHome();
-                addRun();
+            addRun();
     }})
 
     $("#double").click(function(){

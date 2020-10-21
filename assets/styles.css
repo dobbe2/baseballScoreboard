@@ -143,8 +143,8 @@
 #home-score, #away-score{
     text-align: center;
     color: white;
-    font-size: 4em;
-    padding-top: 21px;
+    font-size: 3em;
+    padding-top: 28px;
 }
 
 #bottom-triangle{
