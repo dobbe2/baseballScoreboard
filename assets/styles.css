@@ -1,3 +1,9 @@
+html{
+    background: url(./images/baseballFieldBackground.jpg);
+    background-size: cover;
+    color: white;
+}
+
 #header{
     text-align: center;
 }
@@ -223,10 +229,9 @@
     margin: -16px 0 0 145px;
 }
 
-#actions-div{
+#actions-div-pitches, #actions-div-hits{
     display: flex;
     justify-content: center;
-    z-index: 1;
 }
 
 button{

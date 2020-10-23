@@ -6,6 +6,7 @@ let outs = 0;
 let balls = 0;
 let strikes = 0;
 let inning = 8;
+let gameover = false;
 
 $(document).ready(function(){
 
@@ -77,6 +78,7 @@ $(document).ready(function(){
         if(inning == 9 && homeScore > awayScore){
             alert("Home Team Wins!");
             $('button').prop('disabled', true);
+            gameover= true;
         }
     }
 
@@ -84,9 +86,11 @@ $(document).ready(function(){
         if(inning == 9 && homeScore < awayScore){
             alert("away team wins!");
             $('button').prop('disabled', true);
+            gameover = true;
         }else if(inning == 9 && homeScore > awayScore){
             alert("home Team wins! Walk off?");
             $('button').prop('disabled', true);
+            gameover = true
         }
     }
     //add function for extra innings on tie!
@@ -99,6 +103,8 @@ $(document).ready(function(){
             $("button").prop("disabled", true);
         }
     }
+
+    //walk off code, if home team scores run to take lead in bottom of ninth or later, home team wins
 
     //set home score
     function setHomeScore(){
@@ -182,20 +188,29 @@ $(document).ready(function(){
             seventhInningStrech();
             //if ninth inning and home team is ahead, game over!
             gameOverTopOfNinth();
-            $("#triangle-top-empty").addClass("triangle-top-empty").removeClass("full");
-            $("#triangle-bottom-empty").addClass("full").removeClass("triangle-bottom-empty");
-            //clear all bases
-            clearBases();
+            console.log(gameover);
+            if(gameover == false){
+                $("#triangle-top-empty").addClass("triangle-top-empty").removeClass("full");
+                $("#triangle-bottom-empty").addClass("full").removeClass("triangle-bottom-empty");
+                //clear all bases
+                clearBases();
+            }else{
+                return;
+            }
         }else if($("#triangle-top-empty").hasClass("triangle-top-empty")){
             gameOverBottomOfNinth();
-            extraInnings();
-            //clear all bases
-            $("#triangle-top-empty").addClass("full").removeClass("triangle-top-empty")
-            $("#triangle-bottom-empty").addClass("triangle-bottom-empty").removeClass("full");
-            inning += 1
-            $("#inning-number").html(inning);
-            setInning();
-            clearBases();
+            console.log(gameover)
+            if(gameover == false){
+                extraInnings();
+                $("#triangle-top-empty").addClass("full").removeClass("triangle-top-empty")
+                $("#triangle-bottom-empty").addClass("triangle-bottom-empty").removeClass("full");
+                inning += 1
+                $("#inning-number").html(inning);
+                setInning();
+                clearBases();
+              }else{
+                  return;
+              }
         }
     }
     //track pitches that are balls, 4 balls equal a walk, runner advances to first, all other forced runners advance.
@@ -359,6 +374,7 @@ $(document).ready(function(){
         else if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base-on")){
             removeRunnerThird();
             addRunnerSecond();
+            addRunnerHome();
             addRun();
         }
     })
@@ -552,24 +568,3 @@ $.ajax(settings).done(function (response) {
     console.log(response);
     $("#home-image").attr("src", response.response[0].logo)
 });}
-// var settings = {
-// 	"async": true,
-// 	"crossDomain": true,
-// 	"url": "https://api-baseball.p.rapidapi.com/teams?league=1&season=2020",
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-host": "api-baseball.p.rapidapi.com",
-// 		"x-rapidapi-key": "eef4bb6860mshbcdd99ffb0c7afbp140049jsn172da8baa055"
-// 	}
-// }
-
-// $.ajax(settings).done(function (response) {
-
-//     //got access to the response, some images are not showing as of oct 11 pm, will test again tomorrow"
-//     let homeTeam = response.response[27].logo;
-//     $("#home-image").attr("src", homeTeam);
-//     let awayTeam = response.response[30].logo;
-//     $("#away-image").attr("src", awayTeam);
-//     console.log(response);
-//     console.log(response.response[21].logo)
-// });
