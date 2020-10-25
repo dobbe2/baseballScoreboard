@@ -33,13 +33,6 @@ html{
     color: white;
 }
 
-/* @media (max-width: 550px){
-    .scoreboard{
-    width: 250px;
-    height: 150px;
-    }
-} */
-
 #away-team{
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
@@ -185,7 +178,7 @@ html{
 .counter-dot-empty{
     height: 23px;
     width: 23px;
-    border: 2px solid yellow;
+    border: 1px solid yellow;
     border-radius: 50%;
     margin: auto;
 }
@@ -236,4 +229,88 @@ html{
 
 button{
     margin: 10px;
+}
+
+@media (max-width: 550px){
+    .scoreboard{
+    width: 250px;
+    height: 150px;
+    }
+    #home-image, #away-image{
+        width: 47px;
+        height: 47px;
+        margin: 6px 0;
+    }
+    #home-score, #away-score{
+        font-size: 2em;
+        padding-top: 10px;
+    }
+    .counter-dot-empty{
+        height: 10px;
+        width: 10px;
+        margin: 8px 1px;
+    }
+    /* stiill need to figure this one out */
+    p.counter-label{
+        font-size: 10px;
+    }
+
+    .base{
+        width: 7px;
+        height: 7px;
+        border: 2px solid yellow;
+    }
+
+    #diamond{
+        margin: 15%;
+    }
+
+    #first-base{
+        margin-left: 70px;
+    }
+
+    #second-base{
+        margin-top: -11px;
+    }
+
+    #third-base{
+        margin-top: 56px;
+    }
+
+    #home-plate{
+        margin: -11px 0 0 70px;
+    }
+
+    #inning-number{
+        font-size: 3em;
+        margin-top: 7px;
+    }
+
+    #bottom-triangle{
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 16px solid yellow;
+    }
+    
+    #top-triangle{
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 16px solid yellow;
+    }
+    
+    .triangle-top-empty{
+        top: 2px;
+        left: -8px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 13px solid darkgreen;
+    }
+
+    .triangle-bottom-empty{
+        top: -14px;
+        left: -8px;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 13px solid darkgreen;
+    }
 }
