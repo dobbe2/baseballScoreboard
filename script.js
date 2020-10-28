@@ -1,7 +1,5 @@
-let homeTeam = "";
 let homeScore = 0;
 let awayScore = 0;
-let awayTeam = "";
 let outs = 0;
 let balls = 0;
 let strikes = 0;
@@ -11,7 +9,7 @@ let gameover = false;
 $(document).ready(function(){
 
     //create function for clearing all balls
-    function clearBalls(){
+    clearBalls = () => {
         $("#ball-one").removeClass('counter-dot').addClass('counter-dot-empty');
         $("#ball-two").removeClass('counter-dot').addClass('counter-dot-empty');
         $("#ball-three").removeClass('counter-dot').addClass('counter-dot-empty');
@@ -19,20 +17,20 @@ $(document).ready(function(){
     }
 
     //create a function for clearing all strikes
-    function clearStrikes(){
+    clearStrikes = () => {
         $("#strike-one").addClass("counter-dot-empty").removeClass('counter-dot');
         $("#strike-two").addClass("counter-dot-empty").removeClass('counter-dot');
         $("#strike-three").addClass("counter-dot-empty").removeClass('counter-dot');
     }
 
     //clear balls and strikes for new at bat
-    function resetCount(){
+    resetCount = () => {
         clearBalls();
         clearStrikes();
     }
 
     //clear the bases
-    function clearBases(){
+    clearBases = () => {
         if($("#first-base").hasClass("base-on")){
             $("#first-base").addClass("base").removeClass("base-on");
             }
@@ -48,7 +46,7 @@ $(document).ready(function(){
 }
 
     //set inning
-    function setInning(){
+    setInning = () => {
         $("#inning-number").html(inning);
     }
 
@@ -56,7 +54,7 @@ $(document).ready(function(){
 
 
     //play 7th inning stretch
-    function seventhInningStrech(){
+    seventhInningStrech = () => {
         if(inning == 7){
             if($('input[type="checkbox"]').is(":checked")){
                 console.log("Music is on!")
@@ -74,7 +72,7 @@ $(document).ready(function(){
         audio.play();}
       });
 
-    function gameOverTopOfNinth(){
+    gameOverTopOfNinth = () => {
         if(inning == 9 && homeScore > awayScore){
             alert("Home Team Wins!");
             $('button').prop('disabled', true);
@@ -82,7 +80,7 @@ $(document).ready(function(){
         }
     }
 
-    function gameOverBottomOfNinth(){
+    gameOverBottomOfNinth = () => {
         if(inning == 9 && homeScore < awayScore){
             alert("away team wins!");
             $('button').prop('disabled', true);
@@ -94,7 +92,7 @@ $(document).ready(function(){
         }
     }
     //add function for extra innings on tie!
-    function extraInnings(){
+    extraInnings = () => {
         if(inning > 9 && homeScore > awayScore){
             alert("Home team wins in extra innings!");
             $('button').prop('disabled', true);
@@ -106,62 +104,69 @@ $(document).ready(function(){
 
     //walk off code, if home team scores run to take lead in bottom of ninth or later, home team wins
 
+    walkoff = () => {
+        if(inning >=9 && $("#triangle-bottom-empty").hasClass("full") && homeScore > awayScore){
+            alert("Walk off win by the home team!");
+            $("button").prop("disabled", true); 
+        }
+    }
+
     //set home score
-    function setHomeScore(){
+    setHomeScore = () => {
         $("#home-score").html(homeScore);
     }
     setHomeScore();
 
     //set away score
-    function setAwayScore(){
+    setAwayScore = () => {
         $("#away-score").html(awayScore);
     }
 
     setAwayScore();
 
     //set base runners and remove base runners
-    function addRunnerFirst(){
+    addRunnerFirst = () => {
         $("#first-base").addClass("base-on").removeClass("base");
         resetCount();
     }
 
-    function addRunnerSecond(){
+    addRunnerSecond = () => {
         $("#second-base").addClass("base-on").removeClass("base");
         resetCount();
     }
 
-    function addRunnerThird(){
+    addRunnerThird = () => {
         $("#third-base").addClass("base-on").removeClass("base");
         resetCount();
     }
 
-    function addRunnerHome(){
+    addRunnerHome = () => {
         $("#home-plate").addClass("base-on").removeClass("base");
         resetCount();
     }
 
-    function removeRunnerFirst(){
+    removeRunnerFirst = () => {
         $("#first-base").addClass("base").removeClass("base-on");
         resetCount();
     }
 
-    function removeRunnerSecond(){
+    removeRunnerSecond = () => {
         $("#second-base").addClass("base").removeClass("base-on");
         resetCount();
     }
 
-    function removeRunnerThird(){
+    removeRunnerThird = () => {
         $("#third-base").addClass("base").removeClass("base-on");
         resetCount();
 
     }
-    function removeRunnerHome(){
+    removeRunnerHome = () => {
         $("#home-plate").addClass("base").removeClass("base-on");
         resetCount();
     }
 
     //add run for home or away team
-    function addRun(){
+    addRun = () => {
         if($("#home-plate").hasClass("base-on") && $("#triangle-top-empty").hasClass("full")){
             console.log("run for away team");
             awayScore += 1
@@ -172,6 +177,7 @@ $(document).ready(function(){
         } else if($("#home-plate").hasClass("base-on") && $("#triangle-bottom-empty").hasClass("full")){
             console.log("run for home team");
             homeScore += 1
+            walkoff();
             $("#home-score").html(homeScore);
             setTimeout(function(){
                 $("#home-plate").removeClass("base-on").addClass("base")
@@ -179,7 +185,7 @@ $(document).ready(function(){
     }}
 
     //change inning
-    function inningChange(){
+    inningChange = () => {
         $("#out-one").removeClass('counter-dot').addClass("counter-dot-empty")
         $("#out-two").removeClass('counter-dot').addClass("counter-dot-empty")
         $("#out-three").removeClass('counter-dot').addClass("counter-dot-empty");
