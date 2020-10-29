@@ -1,9 +1,9 @@
 let homeScore = 0;
 let awayScore = 0;
-let outs = 0;
-let balls = 0;
-let strikes = 0;
-let inning = 8;
+// let outs = 0;
+// let balls = 0;
+// let strikes = 0;
+let inning = 1;
 let gameover = false;
 
 $(document).ready(function(){

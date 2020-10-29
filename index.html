@@ -5,21 +5,23 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Baseball Scoreboard</title>
 </head>
 
 <body>
-    <div id="header">&#9918; Play Ball! &#9918;</div>
+    <div id="header">
+        <h1>&#9918; Baseball Interactive Scoreboard &#9918;</h1>
+    </div>
 
     <div class="team-search">
-        <label for="home-team-search">Home Team</label>
-        <input type="text" id="home-team-search">
+        <!-- <label for="home-team-search">Home Team</label> -->
+        <input type="text" id="home-team-search" placeholder="Home Team">
     <button type="submit" id="home-search-button">Search Home Team</button><br>
 
-    <label for="away-team-search">Away Team</label>
-        <input type="text" id="away-team-search">
+    <!-- <label for="away-team-search">Away Team</label> -->
+        <input type="text" id="away-team-search" placeholder="Away Team">
     
     <button type="submit" id="away-search-button">Search Away Team</button>
     </div>
@@ -64,16 +66,20 @@
             </div>
         </div>
     </div>
-    <div id="actions-div-pitches">
-        <button id="add-ball">Ball</button>
-        <button id="add-strike">Strike</button>
-        <button id="add-out">Out</button>
-    </div>
-    <div id="actions-div-hits">
-        <button class="hit" id="single">Single</button>
-        <button class="hit" id="double">Double</button>
-        <button class="hit" id="triple">Triple</button>
-        <button class="hit" id="home-run">Home Run</button>
+    <div id="actions">
+        <div id="actions-div-pitches">
+            <h2>Pitches</h2>
+            <button id="add-ball">Ball</button>
+            <button id="add-strike">Strike</button>
+            <button id="add-out">Out</button>
+        </div>
+        <div id="actions-div-hits">
+            <h2>Hits</h2>
+            <button class="hit" id="single">Single</button>
+            <button class="hit" id="double">Double</button>
+            <button class="hit" id="triple">Triple</button>
+            <button class="hit" id="home-run">Home Run</button>
+        </div>
     </div>
     <div class="controls">
         <input type="checkbox" id="music" name="music" unchecked>

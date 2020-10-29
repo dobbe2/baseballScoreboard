@@ -1,7 +1,15 @@
 html{
     background: url(./images/baseballFieldBackground.jpg);
     background-size: cover;
+    background-repeat: round;
+    background-attachment: fixed;
     color: white;
+    text-align: center;
+    /* font-family: 'Press Start 2P', cursive; */
+}
+
+button {
+    font-family: 'Press Start 2P', cursive;
 }
 
 #header{
@@ -222,9 +230,15 @@ html{
     margin: -16px 0 0 145px;
 }
 
-#actions-div-pitches, #actions-div-hits{
+#actions {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    margin: 0 25%;
+}
+
+#actions-div-pitches, #actions-div-hits{
+    display: grid;
+    /* justify-content: center; */
 }
 
 button{
@@ -232,6 +246,10 @@ button{
 }
 
 @media (max-width: 550px){
+
+    h1{
+        font-size: 1em;
+    }
     .scoreboard{
     width: 250px;
     height: 150px;
@@ -307,8 +325,8 @@ button{
     }
 
     .triangle-bottom-empty{
-        top: -14px;
-        left: -8px;
+        top: -15px;
+        left: -7.5px;
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         border-top: 13px solid darkgreen;
