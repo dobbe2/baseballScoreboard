@@ -522,6 +522,33 @@ $(document).ready(function(){
 })
 
    
+// Get the home input field
+var homeInput = document.getElementById("home-team-search");
+
+// Execute a function when the user releases a key on the keyboard
+homeInput.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("home-search-button").click();
+  }
+});
+
+// Get the away input field
+var awayInput = document.getElementById("away-team-search");
+
+// Execute a function when the user releases a key on the keyboard
+awayInput.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("away-search-button").click();
+  }
+});
 
 $("#home-search-button").on("click", function(){
     event.preventDefault();
