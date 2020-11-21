@@ -265,10 +265,29 @@ button{
     h1{
         font-size: 1em;
     }
-    .scoreboard{
-    width: 250px;
-    height: 150px;
+
+    button{
+        font-size: 8px;
     }
+
+    .team-search{
+        display: block;
+    }
+
+    #home-team-search, #away-team-search{
+        width: 85px;
+    }
+
+    #home-search-button, #away-search-button{
+        height: 21px;
+        width: 93px;
+    }
+
+    .scoreboard{
+        width: 250px;
+        height: 150px;
+    }
+
     #home-image, #away-image{
         width: 47px;
         height: 47px;
@@ -283,7 +302,14 @@ button{
         width: 10px;
         margin: 8px 1px;
     }
-    /* stiill need to figure this one out */
+
+    .counter-dot{
+        height: 10px;
+        width: 10px;
+        margin: auto 2px;
+    }
+
+    /* still need to figure this one out */
     p.counter-label{
         font-size: 10px;
     }
@@ -345,5 +371,15 @@ button{
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         border-top: 13px solid darkgreen;
+    }
+
+    .base-on{
+        width: 5px;
+        height: 5px;
+    }
+
+    #actions {
+        margin: 0 15%;
+        width: 70%;
     }
 }
