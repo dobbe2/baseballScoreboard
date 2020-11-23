@@ -131,8 +131,8 @@ button {
 
 .triangle-top-empty{
     position: relative;
-    top: 4px;
-    left: -21.5px;
+    top: 5px;
+    left: -22px;
     width: 0;
     height: 0;
     border-left: 22px solid transparent;
@@ -166,7 +166,7 @@ button {
 .triangle-bottom-empty{
     position: relative;
     top: -49px;
-    left: -21.5px;
+    left: -22px;
     width: 0;
     height: 0;
     border-left: 22px solid transparent;
@@ -367,7 +367,7 @@ button{
 
     .triangle-bottom-empty{
         top: -15px;
-        left: -7.5px;
+        left: -8px;
         border-left: 8px solid transparent;
         border-right: 8px solid transparent;
         border-top: 13px solid darkgreen;
