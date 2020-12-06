@@ -39,6 +39,7 @@ button {
     border: 1px  rgb(0, 80, 0) solid;
     background-color: darkgreen;
     color: white;
+    box-shadow: 0px 0px 9px 7px rgba(0, 0, 0, 0.4);
 }
 
 #away-team{
@@ -174,6 +175,9 @@ button {
     border-top: 44px solid darkgreen;
 }
 
+.counter-label{
+    padding: 4px;
+}
 
 .counter-dot{
     height: 25px;
@@ -236,6 +240,7 @@ button {
     margin: 0 25%;
     border: rgb(0, 80, 0) 1px solid;
     background-color: darkgreen;
+    box-shadow: 0px 0px 9px 7px rgba(0, 0, 0, 0.4);
 }
 
 #actions-div-pitches{
@@ -258,6 +263,10 @@ button {
 
 button{
     margin: 10px;
+}
+
+.controls{
+    padding: 10px;
 }
 
 @media (max-width: 550px){
@@ -297,6 +306,12 @@ button{
         font-size: 2em;
         padding-top: 10px;
     }
+
+    .counter-label{
+        padding: 0px;
+        margin-top: 8px;
+    }
+
     .counter-dot-empty{
         height: 10px;
         width: 10px;

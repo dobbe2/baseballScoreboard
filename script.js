@@ -455,7 +455,9 @@ $(document).ready(function(){
         }
         //if runner on first base, 2 and 3 are empty, add 2 runs, clear bases
         else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
+            addRunnerHome();
             addRun();
+            addRunnerHome();
             addRun();
             clearBases();
         }
