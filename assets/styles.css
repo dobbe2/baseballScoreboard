@@ -16,6 +16,16 @@ button {
     text-align: center;
 }
 
+/* #main-title{
+    text-shadow: 2px 2px darkred;
+} */
+
+#main-logo-image{
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+}
+
 #container{
     display: flex;
     width: 100%;
@@ -29,6 +39,7 @@ button {
     align-items: center;
     justify-content: center;
 }
+
 .scoreboard{
     display: grid;
     margin: 20px auto;
@@ -50,12 +61,13 @@ button {
     grid-row-end: 2;
 }
 #away-score{
-     border: 1px solid  rgb(0, 80, 0);
-     grid-column-start: 2;
-     grid-column-end: 3;
-     grid-row-start: 1;
-     grid-row-end: 2;
+    border: 1px solid  rgb(0, 80, 0);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
 }
+
 #home-team{
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
@@ -63,12 +75,13 @@ button {
     grid-row-start: 2;
     grid-row-end: 3;
 }
+
 #home-score{
-     border: 1px solid  rgb(0, 80, 0);
-     grid-column-start: 2;
-     grid-column-end: 3;
-     grid-row-start: 2;
-     grid-row-end: 3;
+    border: 1px solid  rgb(0, 80, 0);
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
 }
 
 #outs{
@@ -76,43 +89,45 @@ button {
     justify-content: space-evenly;
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
-     grid-column-end: 3;
-     grid-row-start: 3;
-     grid-row-end: 4;
-    
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
+
 #diamond{
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 3;
-     grid-column-end: 5;
-     grid-row-start: 1;
-     grid-row-end: 3;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
+
 #balls{
     display: flex;
     justify-content: space-evenly;
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 3;
-     grid-column-end: 4;
-     grid-row-start: 3;
-     grid-row-end: 4;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
 
 #inning{
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 5;
-     grid-column-end: 6;
-     grid-row-start: 1;
-     grid-row-end: 3;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 3;
 }
+
 #strikes{
     display: flex;
     justify-content: space-evenly;
     border: 1px solid  rgb(0, 80, 0);
     grid-column-start: 4;
-     grid-column-end: 6;
-     grid-row-start: 3;
-     grid-row-end: 4;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
 }
 
 #home-image, #away-image{
@@ -195,7 +210,6 @@ button {
     margin: auto;
 }
 
- 
 #diamond{
     width: 65%;
     height: 65%;
@@ -324,7 +338,6 @@ button{
         margin: auto 2px;
     }
 
-    /* still need to figure this one out */
     p.counter-label{
         font-size: 10px;
     }
