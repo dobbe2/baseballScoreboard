@@ -249,9 +249,11 @@ button {
 }
 
 #actions {
+    width: 500px;
+    height: 300px;
     display: flex;
     justify-content: space-around;
-    margin: 0 25%;
+    margin: auto;
     border: rgb(0, 80, 0) 1px solid;
     background-color: darkgreen;
     box-shadow: 0px 0px 9px 7px rgba(0, 0, 0, 0.4);
@@ -407,7 +409,8 @@ button{
     }
 
     #actions {
-        margin: 0 15%;
-        width: 70%;
+        width: 250px;
+        height: auto;
+        margin: auto;
     }
 }
