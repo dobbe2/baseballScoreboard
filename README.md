@@ -19,3 +19,4 @@ https://dobbe2.github.io/baseballScoreboard/
 ## Known Bugs
 
 - The API's collection of images that is used to get the MLB team logos is incomplete, and there are a few teams without images (Sorry Yankees Fans). 
+- I reached out to the API owner to have the image files updated, hopefully the images will be posted soon
