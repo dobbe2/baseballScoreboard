@@ -6,11 +6,11 @@ This project is a great challenge in logic, and uses so many conditionals.  Base
 
 ### Technologies Used
 - HTML
-- CSS including Grid Layout
+- CSS
 - Javascript
 - jQuery
 - RapidAPI
-- CSS grid was used for the scoreboard layout
+- CSS grid layout was used for the scoreboard 
 
 ## Visit The Scoreboard Here
 

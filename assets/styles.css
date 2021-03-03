@@ -1,11 +1,29 @@
-html{
+body{
+    color: white;
+    text-align: center;
+    /* font-family: 'Press Start 2P', cursive; */
+}
+
+#background{
+    overflow: auto;
+    position: relative;
+}
+
+#background::before {
+    content: "";
+    position: fixed;
+    left: -5%;
+    top: -5%;
+    right: 0;
+    z-index: -1;
+    display:block;
     background: url(./images/baseballFieldBackground.jpg);
     background-size: cover;
     background-repeat: round;
     background-attachment: fixed;
-    color: white;
-    text-align: center;
-    /* font-family: 'Press Start 2P', cursive; */
+    height: 110%;
+    width: 110%;
+    filter: blur(2px);
 }
 
 button {
