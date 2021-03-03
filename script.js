@@ -67,13 +67,13 @@ $(document).ready(function(){
     //play 7th inning stretch
     seventhInningStrech = () => {
         if(inning == 7){
+            alert("seventh Inning strech!");
             if($('input[type="checkbox"]').is(":checked")){
                 console.log("Music is on!");
                 takeMeOut.play()
             }else{
                 console.log("Music is off")
             }
-            alert("seventh Inning strech!");
         }
     }
 

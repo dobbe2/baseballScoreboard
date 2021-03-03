@@ -286,8 +286,13 @@ button{
     margin: 10px;
 }
 
-.controls{
+/* .controls{
     padding: 10px;
+} */
+
+#sound-controls{
+    width: 500px;
+    margin: auto;
 }
 
 @media (max-width: 550px){
@@ -422,5 +427,10 @@ button{
     #hits-image{
         height: 52.81px;
         margin-bottom: 21px;
+    }
+
+    #sound-controls{
+        width: 250px;
+        margin: auto;
     }
 }
