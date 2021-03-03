@@ -54,14 +54,16 @@ button {
 }
 
 #away-team{
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-right: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 2;
 }
 #away-score{
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-right: 1px solid  rgb(0, 80, 0);
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 1;
@@ -69,7 +71,9 @@ button {
 }
 
 #home-team{
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-top: 1px solid  rgb(0, 80, 0);
+    border-right: 1px solid  rgb(0, 80, 0);
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -77,7 +81,9 @@ button {
 }
 
 #home-score{
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-top: 1px solid  rgb(0, 80, 0);
+    border-right: 1px solid  rgb(0, 80, 0);
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -87,7 +93,9 @@ button {
 #outs{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-top: 1px solid  rgb(0, 80, 0);
+    border-right: 1px solid rgb(0, 80, 0);
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 3;
@@ -105,7 +113,9 @@ button {
 #balls{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-top: 1px solid  rgb(0, 80, 0);
+    border-right: 1px solid rgb(0, 80, 0);
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 3;
@@ -113,7 +123,8 @@ button {
 }
 
 #inning{
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-left: 1px solid rgb(0, 80, 0);    
     grid-column-start: 5;
     grid-column-end: 6;
     grid-row-start: 1;
@@ -123,7 +134,8 @@ button {
 #strikes{
     display: flex;
     justify-content: space-evenly;
-    border: 1px solid  rgb(0, 80, 0);
+    border: 1px solid transparent;
+    border-top: 1px solid  rgb(0, 80, 0);
     grid-column-start: 4;
     grid-column-end: 6;
     grid-row-start: 3;
