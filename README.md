@@ -6,7 +6,7 @@ This project is a great challenge in logic, and uses so many conditionals.  Base
 
 ### Technologies Used
 - HTML
-- CSS
+- CSS including Grid Layout
 - Javascript
 - jQuery
 - RapidAPI
@@ -20,3 +20,4 @@ https://dobbe2.github.io/baseballScoreboard/
 
 - The API's collection of images that is used to get the MLB team logos is incomplete, and there are a few teams without images (Sorry Yankees Fans). 
 - I reached out to the API owner to have the image files updated, hopefully the images will be posted soon
+- Temporary workaround: There were 4 teams without Logos sent back.  I worked in a check to see if one of these teams where searched, I have local images to use so it doesn't return the "Image Not Found" placeholder.
