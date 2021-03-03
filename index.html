@@ -14,10 +14,11 @@
 <body>
     <div id="header">
         <!-- <h1 id="main-title">&#9918; Baseball Interactive Scoreboard &#9918;</h1> -->
-        <img src="assets/images/baseballLogo.png" id="main-logo-image">
+        <img src="assets/images/baseballLogo.png" id="main-logo-image" alt="title image">
     </div>
 
     <div class="team-search">
+        <!-- <p id="choose-team-instructions" style="width: 100%;">Select your favorite MLB team here!</p> -->
         <!-- <label for="home-team-search">Home Team</label> -->
         <input type="text" id="home-team-search" placeholder="Home Team">
     <button type="submit" id="home-search-button">Search</button><br>
@@ -83,11 +84,14 @@
             <button class="hit" id="home-run">Home Run</button>
         </div>
     </div>
-    <div class="controls">
+
+    <div id="sound-controls">
+        <button class="button play-music">Play Take Me Out to the Ballgame</button>
         <input type="checkbox" id="music" name="music" unchecked>
-        <label for="music" id="music-switch">
+        <input type="range" id="volume-control">
             Play Music and Sounds
         </label>
+        <label for="music" id="music-switch">
     </div>
     <audio id="take-me-out">
         <source src="./assets/sounds/TakeMeOutToTheBallgame-DocWatson.mp3" type="audio/mpeg">

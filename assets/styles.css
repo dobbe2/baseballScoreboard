@@ -147,7 +147,7 @@ button {
 
 .triangle-top-empty{
     position: relative;
-    top: 5px;
+    top: 4px;
     left: -22px;
     width: 0;
     height: 0;
@@ -275,6 +275,11 @@ button {
 #hits-image, #pitches-image {
     width: 100%;
     margin: 10px auto;
+}
+
+#hits-image {
+    height: 106.7px;
+    margin-bottom: 23px;
 }
 
 button{
@@ -412,5 +417,10 @@ button{
         width: 250px;
         height: auto;
         margin: auto;
+    }
+
+    #hits-image{
+        height: 52.81px;
+        margin-bottom: 21px;
     }
 }

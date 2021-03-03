@@ -1,12 +1,23 @@
 let homeScore = 0;
 let awayScore = 0;
-// let outs = 0;
-// let balls = 0;
-// let strikes = 0;
 let inning = 1;
 let gameover = false;
 
 $(document).ready(function(){
+
+    //audio.volume not recognized
+// let volume = document.querySelector("#volume-control");
+// volume.addEventListener("change", function(e){
+//     audio.volume = e.currentTarget.value / 100;
+// })
+
+    let takeMeOut = document.createElement("audio");
+    takeMeOut.setAttribute("src", "./assets/sounds/TakeMeOutToTheBallgame-DocWatson.mp3");
+
+    //play take me out on button press
+    $(".play-music").on("click", function(){
+        takeMeOut.play();
+    })
 
     //create function for clearing all balls
     clearBalls = () => {
@@ -57,8 +68,8 @@ $(document).ready(function(){
     seventhInningStrech = () => {
         if(inning == 7){
             if($('input[type="checkbox"]').is(":checked")){
-                console.log("Music is on!")
-                $('audio#take-me-out')[0].play()
+                console.log("Music is on!");
+                takeMeOut.play()
             }else{
                 console.log("Music is off")
             }
@@ -70,7 +81,7 @@ $(document).ready(function(){
         if($('input[type="checkbox"').is(":checked")){
         const audio = new Audio("./assets/sounds/woodbat.mp3");
         audio.play();}
-      });
+    });
 
     gameOverTopOfNinth = () => {
         if(inning == 9 && homeScore > awayScore){
@@ -214,9 +225,9 @@ $(document).ready(function(){
                 $("#inning-number").html(inning);
                 setInning();
                 clearBases();
-              }else{
-                  return;
-              }
+            }else{
+                return;
+            }
         }
     }
     //track pitches that are balls, 4 balls equal a walk, runner advances to first, all other forced runners advance.
@@ -447,7 +458,7 @@ $(document).ready(function(){
         }
     })
 
-     $("#home-run").click(function(){
+    $("#home-run").click(function(){
         //if first base, second base, and third base are empty, add run
         if($("#first-base").hasClass("base") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
             addRunnerHome();
@@ -523,19 +534,18 @@ $(document).ready(function(){
     })
 })
 
-   
 // Get the home input field
 var homeInput = document.getElementById("home-team-search");
 
 // Execute a function when the user releases a key on the keyboard
 homeInput.addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
+    if (event.keyCode === 13) {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
     document.getElementById("home-search-button").click();
-  }
+    }
 });
 
 // Get the away input field
@@ -544,29 +554,50 @@ var awayInput = document.getElementById("away-team-search");
 // Execute a function when the user releases a key on the keyboard
 awayInput.addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
-  if (event.keyCode === 13) {
+    if (event.keyCode === 13) {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
     document.getElementById("away-search-button").click();
-  }
+    }
 });
 
 $("#home-search-button").on("click", function(){
     event.preventDefault();
-    let searchedHomeTeam = $("#home-team-search").val().trim();
+    let searchedHomeTeam = $("#home-team-search").val().trim().toLowerCase();
+    if(searchedHomeTeam =="yankees" || searchedHomeTeam =="new york yankees"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/yankees.png")
+    }else if(searchedHomeTeam == "red sox" || searchedHomeTeam =="boston" || searchedHomeTeam == "boston red sox"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/redSox.png")
+    }else if(searchedHomeTeam == "tigers" || searchedHomeTeam =="detroit" || searchedHomeTeam == "detroit tigers"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/tigers.png")
+    }else if(searchedHomeTeam == "pirates" || searchedHomeTeam =="pittsburgh" || searchedHomeTeam == "pittsburgh pirates"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/pirates.png")
+    }else{
     setHomeTeam(searchedHomeTeam);
-})
+}})
 
 $("#away-search-button").on("click", function(){
     event.preventDefault();
-    let searchedAwayTeam = $("#away-team-search").val().trim();
+    let searchedAwayTeam = $("#away-team-search").val().trim().toLowerCase();
+    if(searchedAwayTeam =="yankees" || searchedAwayTeam =="new york yankees"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/yankees.png")
+    }else if(searchedAwayTeam == "red sox" || searchedAwayTeam =="boston" || searchedAwayTeam == "boston red sox"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/redSox.png")
+    }else if(searchedAwayTeam == "tigers" || searchedAwayTeam =="detroit" || searchedAwayTeam == "detroit tigers"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/tigers.png")
+    }else if(searchedAwayTeam == "pirates" || searchedAwayTeam =="pittsburgh" || searchedAwayTeam == "pittsburgh pirates"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/pirates.png")
+    }else{
     setAwayTeam(searchedAwayTeam);
-})
+}})
 
-// commented out API call during development of other portions of project, only given 100 per day free
+//API missing 4 team logos, here is a patch until images are updated
+
+
 
 function setAwayTeam(awayTeam){
+    
     let queryTeam = awayTeam
     const settings = {
         "async": true,
@@ -578,6 +609,7 @@ function setAwayTeam(awayTeam){
             "x-rapidapi-key": "77ea7439bemshbd256fafb717067p139b8ejsn9c8d1de46d29"
         }
     };
+    
     
     $.ajax(settings).done(function (response) {
         //add if more than one result (i.e. new york mets and yankees) choose team via prompt or other way
