@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="./assets/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./assets/images/baseballFavicon.ico" rel="icon" type="image/x-icon" />
     <title>Baseball Scoreboard</title>
@@ -14,12 +16,13 @@
 <body>
     <div id="background"></div>
     <div id="header">
-        <!-- <h1 id="main-title">&#9918; Baseball Interactive Scoreboard &#9918;</h1> -->
         <img src="assets/images/baseballLogo.png" id="main-logo-image" alt="title image">
     </div>
 
+    <p id="choose-team-instructions">Select your favorite MLB teams here</p>
+
     <div class="team-search">
-        <!-- <p id="choose-team-instructions" style="width: 100%;">Select your favorite MLB team here!</p> -->
+        <br>
         <!-- <label for="home-team-search">Home Team</label> -->
         <input type="text" id="home-team-search" placeholder="Home Team">
     <button type="submit" id="home-search-button">Search</button><br>
@@ -86,20 +89,10 @@
         </div>
     </div>
 
-    <div id="sound-controls">
-        <button class="button play-music">Play Take Me Out to the Ballgame</button>
+        <button class="button play-music">&#127925; Play Take Me Out to the Ballgame &#127925;</button>
+        <button class="button pause-music">  Pause &#x23f8;</button>
+
         
-        <input type="range" id="volume-control">
-            Play Music and Sounds
-        </label>
-        <input type="checkbox" id="music" name="music" unchecked>
-        <label for="music" id="music-switch">
-    </div>
-    <audio id="take-me-out">
-        <source src="./assets/sounds/TakeMeOutToTheBallgame-DocWatson.mp3" type="audio/mpeg">
-    </audio>
-
-
     <script src="./script.js"></script>
 </body>
 

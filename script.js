@@ -5,18 +5,18 @@ let gameover = false;
 
 $(document).ready(function(){
 
-    //audio.volume not recognized
-// let volume = document.querySelector("#volume-control");
-// volume.addEventListener("change", function(e){
-//     audio.volume = e.currentTarget.value / 100;
-// })
-
+    //sound controls
     let takeMeOut = document.createElement("audio");
     takeMeOut.setAttribute("src", "./assets/sounds/TakeMeOutToTheBallgame-DocWatson.mp3");
 
     //play take me out on button press
     $(".play-music").on("click", function(){
         takeMeOut.play();
+    })
+
+    //pause button
+    $(".pause-music").on("click", function(){
+        takeMeOut.pause();
     })
 
     //create function for clearing all balls
@@ -63,25 +63,21 @@ $(document).ready(function(){
 
     setInning();
 
-
     //play 7th inning stretch
     seventhInningStrech = () => {
         if(inning == 7){
-            alert("seventh Inning strech!");
-            if($('input[type="checkbox"]').is(":checked")){
-                console.log("Music is on!");
+            alert("seventh Inning stretch!");
                 takeMeOut.play()
-            }else{
-                console.log("Music is off")
             }
         }
-    }
+    // }
 
-    $('.hit').click(function() {
-        if($('input[type="checkbox"').is(":checked")){
-        const audio = new Audio("./assets/sounds/woodbat.mp3");
-        audio.play();}
-    });
+    //currently no action sounds
+    // $('.hit').click(function() {
+    //     if($('input[type="checkbox"').is(":checked")){
+    //     const audio = new Audio("./assets/sounds/woodbat.mp3");
+    //     audio.play();}
+    // });
 
     gameOverTopOfNinth = () => {
         if(inning == 9 && homeScore > awayScore){
@@ -102,6 +98,7 @@ $(document).ready(function(){
             gameover = true
         }
     }
+
     //add function for extra innings on tie!
     extraInnings = () => {
         if(inning > 9 && homeScore > awayScore){
@@ -114,7 +111,6 @@ $(document).ready(function(){
     }
 
     //walk off code, if home team scores run to take lead in bottom of ninth or later, home team wins
-
     walkoff = () => {
         if(inning >=9 && $("#triangle-bottom-empty").hasClass("full") && homeScore > awayScore){
             alert("Walk off win by the home team!");
@@ -230,6 +226,7 @@ $(document).ready(function(){
             }
         }
     }
+
     //track pitches that are balls, 4 balls equal a walk, runner advances to first, all other forced runners advance.
     $("#add-ball").click(function(){
         if($('#ball-one').hasClass('counter-dot-empty')) {
@@ -577,6 +574,7 @@ $("#home-search-button").on("click", function(){
     setHomeTeam(searchedHomeTeam);
 }})
 
+//API missing 4 team logos, here is a patch until images are updated
 $("#away-search-button").on("click", function(){
     event.preventDefault();
     let searchedAwayTeam = $("#away-team-search").val().trim().toLowerCase();
@@ -592,10 +590,6 @@ $("#away-search-button").on("click", function(){
     setAwayTeam(searchedAwayTeam);
 }})
 
-//API missing 4 team logos, here is a patch until images are updated
-
-
-
 function setAwayTeam(awayTeam){
     
     let queryTeam = awayTeam
@@ -609,7 +603,6 @@ function setAwayTeam(awayTeam){
             "x-rapidapi-key": "77ea7439bemshbd256fafb717067p139b8ejsn9c8d1de46d29"
         }
     };
-    
     
     $.ajax(settings).done(function (response) {
         //add if more than one result (i.e. new york mets and yankees) choose team via prompt or other way
