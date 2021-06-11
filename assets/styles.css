@@ -306,7 +306,10 @@ button {
 }
 
 #actions-div-pitches, #actions-div-hits{
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 #hits-image, #pitches-image {
@@ -321,6 +324,10 @@ button {
 
 button{
     margin: 10px;
+}
+
+.hit, .pitch {
+    width: 110px;
 }
 
 #sound-controls{
@@ -465,6 +472,10 @@ button{
     #hits-image{
         height: 52.81px;
         margin-bottom: 21px;
+    }
+
+    .hit, .pitch {
+        width: 75px;
     }
 
     #sound-controls{
