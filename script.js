@@ -537,7 +537,7 @@ var homeInput = document.getElementById("home-team-search");
 // Execute a function when the user releases a key on the keyboard
 homeInput.addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
+    if (event.key === 'Enter') {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
@@ -551,7 +551,7 @@ var awayInput = document.getElementById("away-team-search");
 // Execute a function when the user releases a key on the keyboard
 awayInput.addEventListener("keyup", function(event) {
   // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
+    if (event.key === 'Enter') {
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
@@ -559,6 +559,7 @@ awayInput.addEventListener("keyup", function(event) {
     }
 });
 
+//API missing 4 team logos, here is a patch until images are updated
 $("#home-search-button").on("click", function(){
     event.preventDefault();
     let searchedHomeTeam = $("#home-team-search").val().trim().toLowerCase();
@@ -570,6 +571,13 @@ $("#home-search-button").on("click", function(){
         $('#home-image').attr("src", "./assets/images/missingTeamLogos/tigers.png")
     }else if(searchedHomeTeam == "pirates" || searchedHomeTeam =="pittsburgh" || searchedHomeTeam == "pittsburgh pirates"){
         $('#home-image').attr("src", "./assets/images/missingTeamLogos/pirates.png")
+        // returned image does not fit area, use alternate image
+    }else if(searchedHomeTeam == "giants" || searchedHomeTeam =="san fransisco" || searchedHomeTeam == "san fransisco giants"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/giants.png")
+    }else if(searchedHomeTeam == "braves" || searchedHomeTeam =="atlanta" || searchedHomeTeam == "atlanta braves"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/braves.png")
+    }else if(searchedHomeTeam == "twins" || searchedHomeTeam =="minnesota" || searchedHomeTeam == "minnesota twins"){
+        $('#home-image').attr("src", "./assets/images/missingTeamLogos/twins.png")
     }else{
     setHomeTeam(searchedHomeTeam);
 }})
@@ -586,6 +594,13 @@ $("#away-search-button").on("click", function(){
         $('#away-image').attr("src", "./assets/images/missingTeamLogos/tigers.png")
     }else if(searchedAwayTeam == "pirates" || searchedAwayTeam =="pittsburgh" || searchedAwayTeam == "pittsburgh pirates"){
         $('#away-image').attr("src", "./assets/images/missingTeamLogos/pirates.png")
+    // returned image does not fit area, use alternate image
+    }else if(searchedAwayTeam == "giants" || searchedAwayTeam =="san fransisco" || searchedAwayTeam == "san fransisco giants"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/giants.png")
+    }else if(searchedAwayTeam == "braves" || searchedAwayTeam =="atlanta" || searchedAwayTeam == "atlanta braves"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/braves.png")
+    }else if(searchedAwayTeam == "twins" || searchedAwayTeam =="minnesota" || searchedAwayTeam == "minnesota twins"){
+        $('#away-image').attr("src", "./assets/images/missingTeamLogos/twins.png")
     }else{
     setAwayTeam(searchedAwayTeam);
 }})

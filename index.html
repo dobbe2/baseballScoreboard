@@ -19,18 +19,25 @@
         <img src="assets/images/baseballLogo.png" id="main-logo-image" alt="title image">
     </div>
 
-    <p id="choose-team-instructions">Select your favorite MLB teams here</p>
+    <div id="team-selection">
+        <div id="image-row">
+            <!-- <img src="./assets/images/batterPNG.png" class="player-pics" alt=""> -->
+            <p id="choose-team-instructions">Welcome to the Interactive Baseball Scoreboard. <br>
+                Choose your teams below, then click Play Ball!<br>Select your favorite MLB teams here</p>
+            <!-- <img src="./assets/images/pitcherPNG.png" class="player-pics" alt=""> -->
+        </div>
+        <div class="team-search">
+            <br>
+            <!-- <label for="home-team-search">Home Team</label> -->
+            <input type="text" id="home-team-search" placeholder="Home Team">
+        <button type="submit" id="home-search-button"  class="action-button">Search</button><br>
 
-    <div class="team-search">
-        <br>
-        <!-- <label for="home-team-search">Home Team</label> -->
-        <input type="text" id="home-team-search" placeholder="Home Team">
-    <button type="submit" id="home-search-button">Search</button><br>
-
-    <!-- <label for="away-team-search">Away Team</label> -->
-        <input type="text" id="away-team-search" placeholder="Away Team">
-    
-    <button type="submit" id="away-search-button">Search</button>
+        <!-- <label for="away-team-search">Away Team</label> -->
+            <input type="text" id="away-team-search" placeholder="Away Team">
+        
+        <button type="submit" id="away-search-button" class="action-button">Search</button>
+        </div>
+        <button id="play-ball" class="action-button">Play Ball!</button>
     </div>
     <div id="container">
         <div class="scoreboard">
@@ -88,10 +95,10 @@
             <button class="hit" id="home-run">Home Run</button>
         </div>
     </div>
-
-        <button class="button play-music">&#127925; Play Take Me Out to the Ballgame &#127925;</button>
-        <button class="button pause-music">  Pause &#x23f8;</button>
-
+    <div id="music-div">
+        <button class="button play-music action-button">&#127925; Play Take Me Out to the Ballgame &#127925;</button>
+        <button class="button pause-music action-button">  Pause &#x23f8;</button>
+    </div>
         
     <script src="./script.js"></script>
 </body>
