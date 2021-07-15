@@ -396,8 +396,8 @@ button{
         margin: 6px 0;
     }
     #home-score, #away-score{
-        font-size: 2em;
-        padding-top: 10px;
+        font-size: 1.5em;
+        padding-top: 15px;
     }
 
     .counter-label{
