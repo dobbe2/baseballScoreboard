@@ -19,6 +19,12 @@ $(document).ready(function(){
         takeMeOut.pause();
     })
 
+    //change display from landing page to game board
+
+    $("#play-ball").on('click', function() {
+        $("#game-board").removeClass("game-board-hidden");
+    })
+
     //create function for clearing all balls
     clearBalls = () => {
         $("#ball-one").removeClass('counter-dot').addClass('counter-dot-empty');
@@ -128,7 +134,6 @@ $(document).ready(function(){
     setAwayScore = () => {
         $("#away-score").html(awayScore);
     }
-
     setAwayScore();
 
     //set base runners and remove base runners

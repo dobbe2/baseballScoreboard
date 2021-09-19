@@ -25,6 +25,11 @@ body{
     filter: blur(2px);
 }
 
+/* this will be used to start the game when teams are selected... need some fun animation to introduce the teams */
+/* .game-board-hidden {
+    display: none
+} */
+
 button {
     font-family: monospace, 'Notable', 'Press Start 2P', cursive;
 }

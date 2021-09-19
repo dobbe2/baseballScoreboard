@@ -19,86 +19,125 @@
         <img src="assets/images/baseballLogo.png" id="main-logo-image" alt="title image">
     </div>
 
-    <div id="team-selection">
+    <div id="instructions">
+        
         <!-- <div id="image-row">
             <p id="choose-team-instructions">Welcome to the Interactive Baseball Scoreboard. <br>
-                Choose your teams below, then click Play Ball!<br>Select your favorite MLB teams here</p>
+                    Choose your teams below, then click Play Ball!<br>Select your favorite MLB teams here</p>
         </div> -->
-        <div class="team-search">
-            <br>
-            <!-- <label for="home-team-search">Home Team</label> -->
-            <input type="text" id="home-team-search" placeholder="Home Team">
-        <button type="submit" id="home-search-button"  class="action-button">Search</button><br>
+        <div id="team-selection">
+            <div class="team-search">
+                <br>
+                <!-- datalist for inputs list="teams" at bottom of this file -->
+                <input type="text" id="home-team-search" placeholder="Home Team" list="teams">
+                
+                <button type="submit" id="home-search-button"  class="action-button">Search</button><br>
 
-        <!-- <label for="away-team-search">Away Team</label> -->
-            <input type="text" id="away-team-search" placeholder="Away Team">
-        
-        <button type="submit" id="away-search-button" class="action-button">Search</button>
-        </div>
-        <button id="play-ball" class="action-button">Play Ball!</button>
+                <input type="text" id="away-team-search" placeholder="Away Team" list="teams">
+            
+                <button type="submit" id="away-search-button" class="action-button">Search</button>
+            </div>
+            <!-- <button id="play-ball">Play Ball!</button> -->
+        </div>   
     </div>
-    <div id="container">
-        <div class="scoreboard">
-            <div id="away-team"><img id="away-image" src="./assets/images/awayteamYellow.png"></div>
-            <div id="away-score"></div>
-            <div id="home-team"><img id="home-image" src="./assets/images/hometeamYellow.png"></div>
-            <div id="home-score"></div>
-            <div id="outs"><p class="counter-label">Outs</p>
-                <div class="counter-dot-empty" id="out-one"></div>
-                <div class="counter-dot-empty" id="out-two"></div>
-                <div class="counter-dot-empty" id="out-three"></div>
-            </div>
-            <div id="diamond">
-                <div class="base" id="first-base"></div>
-                <div class="base" id="second-base"></div>
-                <div class="base" id="third-base"></div>
-                <div class="base" id="home-plate"></div>
-            </div>
-            <div id="balls"><p class="counter-label">Balls</p>
-                <div class="counter-dot-empty" id="ball-one"></div>
-                <div class="counter-dot-empty" id="ball-two"></div>
-                <div class="counter-dot-empty" id="ball-three"></div>
-                <div class="counter-dot-empty" id="ball-four"></div>
-            </div>
-            <div id="inning">
-                <div id="top-triangle">
-                    <!-- to unlight triangle, add class "triangle-top-empty" to div below-->
-                    <div id="triangle-top-empty" class="full"></div>
+
+    <div id="game-board" class="game-board-hidden">
+        <div id="container">
+            <div class="scoreboard">
+                <div id="away-team"><img id="away-image" src="./assets/images/awayteamYellow.png"></div>
+                <div id="away-score"></div>
+                <div id="home-team"><img id="home-image" src="./assets/images/hometeamYellow.png"></div>
+                <div id="home-score"></div>
+                <div id="outs"><p class="counter-label">Outs</p>
+                    <div class="counter-dot-empty" id="out-one"></div>
+                    <div class="counter-dot-empty" id="out-two"></div>
+                    <div class="counter-dot-empty" id="out-three"></div>
                 </div>
-                <div id="inning-number"></div>
-                <div id="bottom-triangle">
-                    <!-- to unlight triangle, add class "triangle-bottom-empty" to div below -->
-                    <div id="triangle-bottom-empty" class="triangle-bottom-empty"></div>
+                <div id="diamond">
+                    <div class="base" id="first-base"></div>
+                    <div class="base" id="second-base"></div>
+                    <div class="base" id="third-base"></div>
+                    <div class="base" id="home-plate"></div>
+                </div>
+                <div id="balls"><p class="counter-label">Balls</p>
+                    <div class="counter-dot-empty" id="ball-one"></div>
+                    <div class="counter-dot-empty" id="ball-two"></div>
+                    <div class="counter-dot-empty" id="ball-three"></div>
+                    <div class="counter-dot-empty" id="ball-four"></div>
+                </div>
+                <div id="inning">
+                    <div id="top-triangle">
+                        <!-- to unlight triangle, add class "triangle-top-empty" to div below-->
+                        <div id="triangle-top-empty" class="full"></div>
+                    </div>
+                    <div id="inning-number"></div>
+                    <div id="bottom-triangle">
+                        <!-- to unlight triangle, add class "triangle-bottom-empty" to div below -->
+                        <div id="triangle-bottom-empty" class="triangle-bottom-empty"></div>
+                    </div>
+                </div>
+                <div id="strikes"><p class="counter-label">Strikes</p>
+                    <div class="counter-dot-empty" id="strike-one"></div>
+                    <div class="counter-dot-empty" id="strike-two"></div>
+                    <div class="counter-dot-empty" id="strike-three"></div>
                 </div>
             </div>
-            <div id="strikes"><p class="counter-label">Strikes</p>
-                <div class="counter-dot-empty" id="strike-one"></div>
-                <div class="counter-dot-empty" id="strike-two"></div>
-                <div class="counter-dot-empty" id="strike-three"></div>
+        </div>
+        <div id="actions">
+            <div id="actions-div-pitches">
+                <img src="./assets/images/pitches-image2.png" alt="pitches" id="pitches-image">
+                <button class="pitch" id="add-ball">Ball</button>
+                <button class="pitch" id="add-strike">Strike</button>
+                <button class="pitch" id="add-out">Out</button>
+            </div>
+            <div id="actions-div-hits">
+                <img src="./assets/images/hits-image.png" alt="hits" id="hits-image">
+                <button class="hit" id="single">Single</button>
+                <button class="hit" id="double">Double</button>
+                <button class="hit" id="triple">Triple</button>
+                <button class="hit" id="home-run">Home Run</button>
             </div>
         </div>
-    </div>
-    <div id="actions">
-        <div id="actions-div-pitches">
-            <img src="./assets/images/pitches-image2.png" alt="pitches" id="pitches-image">
-            <button class="pitch" id="add-ball">Ball</button>
-            <button class="pitch" id="add-strike">Strike</button>
-            <button class="pitch" id="add-out">Out</button>
-        </div>
-        <div id="actions-div-hits">
-            <img src="./assets/images/hits-image.png" alt="hits" id="hits-image">
-            <button class="hit" id="single">Single</button>
-            <button class="hit" id="double">Double</button>
-            <button class="hit" id="triple">Triple</button>
-            <button class="hit" id="home-run">Home Run</button>
+        <div id="music-div">
+            <button class="button play-music action-button">&#127925; Play Take Me Out to the Ballgame &#127925;</button>
+            <button class="button pause-music action-button">  Pause &#x23f8;</button>
         </div>
     </div>
-    <div id="music-div">
-        <button class="button play-music action-button">&#127925; Play Take Me Out to the Ballgame &#127925;</button>
-        <button class="button pause-music action-button">  Pause &#x23f8;</button>
-    </div>
-        
     <script src="./script.js"></script>
+        <datalist id="teams">
+            <option value="Arizona Diamondbacks">
+            <option value="Atlanta Braves">
+            <option value="Baltimore Orioles">
+            <option value="Boston Red Sox">
+            <option value="Chicago Cubs">
+            <option value="Chicago White Sox">
+            <option value="Cincinnati Reds">
+            <option value="Cleveland Indians">
+            <option value="Colorado Rockies">
+            <option value="Detriot Tigers">
+            <option value="Houston Astros">
+            <option value="Kansas City Royals">
+            <option value="Los Angeles Angels">
+            <option value="Los Angeles Dodgers">
+            <option value="Miami Marlins">
+            <option value="Milwaukee Brewers">
+            <option value="Minnesota Twins">
+            <option value="New York Mets">
+            <option value="New York Yankees">
+            <option value="Oakland Athletics">
+            <option value="Philadelphia Phillies">
+            <option value="Pittsburgh Pirates">
+            <option value="San Diego Padres">
+            <option value="San Francisco Giants">
+            <option value="Seattle Mariners">
+            <option value="St. Louis Cardinals">
+            <option value="Tampa Bay Rays">
+            <option value="Texas Rangers">
+            <option value="Toronto Blue Jays">
+            <option value="Washington Nationals">
+            <option value="Canada">
+            <option value="Albuquerque Isotopes">
+        </datalist>
 </body>
 
 </html>
