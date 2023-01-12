@@ -3,6 +3,42 @@ body{
     text-align: center;
 }
 
+button {
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        letter-spacing: 2px;
+        text-decoration: none;
+        text-transform: uppercase;
+        color: #000;
+        cursor: pointer;
+        border: 2px solid;
+        padding: 0.25em 0.5em;
+        box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px;
+        position: relative;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+      }
+      
+      button:active {
+        box-shadow: 0px 0px 0px 0px;
+        top: 2px;
+        left: 2px;
+      }
+      
+      @media (min-width: 768px) {
+        button {
+          padding: 0.25em 0.75em;
+        }
+
+        @media (max-width: 550px) {
+            button {
+                font-size: 12px;
+            }
+        }
+      
+}
+
 #background{
     overflow: auto;
     position: relative;
@@ -56,7 +92,17 @@ button {
     margin: 4px;
 }
 
-#play-ball, .action-button {
+#home-team-search, #away-team-search {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    border: 2px solid black;
+    /* letter-spacing: 2px; */
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    height: 25px;
+}
+
+#play-ball {
     background-color: darkgreen;
     color: yellow;
     text-shadow: 1px 1px black;
@@ -102,7 +148,7 @@ button {
     border: 1px  rgb(0, 80, 0) solid;
     background-color: darkgreen;
     color: white;
-    box-shadow: 0px 0px 9px 7px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 2px black;
 }
 
 #away-team{
@@ -195,10 +241,21 @@ button {
     grid-row-end: 4;
 }
 
-#home-image, #away-image{
+#home-team, #away-team {
+    float: right;
+}
+
+#home-image, #away-image {
     width: 95px;
     height: 95px;
     margin: 10px 0;
+    filter: drop-shadow(2px 2px 2px black);
+    -webkit-filter: drop-shadow(2px 2px 2px black);
+}
+
+#hits-image, #pitches-image, #main-logo-image{
+    filter: drop-shadow(2px 2px 2px black);
+    -webkit-filter: drop-shadow(2px 2px 2px black);
 }
 
 #top-triangle{
@@ -233,6 +290,7 @@ button {
     color: white;
     font-size: 3em;
     padding-top: 28px;
+    text-shadow: 2px 2px 1px rgb(0 80 0);
 }
 
 #bottom-triangle{
@@ -257,6 +315,7 @@ button {
 
 .counter-label{
     padding: 4px;
+    text-shadow: 2px 2px 1px rgb(0 80 0);
 }
 
 .counter-dot{
@@ -321,7 +380,7 @@ button {
     margin: auto;
     border: rgb(0, 80, 0) 1px solid;
     background-color: darkgreen;
-    box-shadow: 0px 0px 9px 7px rgba(0, 0, 0, 0.4);
+    box-shadow: 2px 2px 2px black;
 }
 
 #actions-div-pitches{
@@ -336,7 +395,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 50%;
 }
 
@@ -347,7 +406,7 @@ button {
 
 #hits-image {
     height: 106.7px;
-    margin-bottom: 23px;
+    /* margin-bottom: 23px; */
 }
 
 button{
@@ -383,13 +442,15 @@ button{
     }
 
     #home-team-search, #away-team-search{
-        width: 85px;
+        /* width: 85px; */
+        padding: 0.25em 0.75em;
+        font-size: 12px;
     }
 
-    #home-search-button, #away-search-button{
+    /* #home-search-button, #away-search-button{
         height: 21px;
         width: 93px;
-    }
+    } */
 
     .scoreboard{
         width: 250px;
@@ -499,7 +560,7 @@ button{
 
     #hits-image{
         height: 52.81px;
-        margin-bottom: 21px;
+        /* margin-bottom: 21px; */
     }
 
     .hit, .pitch {
