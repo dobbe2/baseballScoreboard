@@ -407,6 +407,7 @@ $(document).ready(function(){
         else if($("#first-base").hasClass("base-on") && $("#second-base").hasClass("base") && $("#third-base").hasClass("base")){
             addRunnerThird();
             removeRunnerFirst();
+            addRunnerHome();
             addRun();
         }
         //if runner on first and second, 3rd empty, remove runner first, remove runner second, add runner third, add 2 runs
