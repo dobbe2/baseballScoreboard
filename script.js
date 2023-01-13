@@ -5,6 +5,38 @@ let gameover = false;
 
 $(document).ready(function(){
 
+    //get modal
+    let modal = document.getElementById('simpleModal');
+    //Get open modal button
+    let modalBtn = document.getElementById('modalBtn');
+    //get close modal button
+    let closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+    //Listen for open click
+    modalBtn.addEventListener('click', openModal);
+    
+    //Listen for close click
+    closeBtn.addEventListener('click', closeModal);
+
+    //Listen for Outside click
+    window.addEventListener('click', clickOutside);
+
+    //Function to open modal
+    function openModal(){
+        modal.style.display = 'block';
+    }
+
+    //Function to Close Modal
+    function closeModal(){
+        modal.style.display = 'none';
+    }
+
+    //function to close modal if outside click
+    function clickOutside(e){
+        if(e.target == modal){
+        modal.style.display = 'none';
+    }}
+
     //sound controls
     let takeMeOut = document.createElement("audio");
     takeMeOut.setAttribute("src", "./assets/sounds/TakeMeOutToTheBallgame-DocWatson.mp3");
