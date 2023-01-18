@@ -209,18 +209,30 @@ $(document).ready(function(){
         resetCount();
     }
 
+    //check if score is larger that 9, adjust padding for space issues
+        largeScore = () => {
+        if(awayScore > 9){
+            $("#away-score").addClass("big-score");
+        }
+        if(homeScore > 9){
+            $("#home-score").addClass("big-score");
+        }
+    }
+
     //add run for home or away team
     addRun = () => {
         if($("#home-plate").hasClass("base-on") && $("#triangle-top-empty").hasClass("full")){
             console.log("run for away team");
             awayScore += 1
             $("#away-score").html(awayScore);
+            largeScore();
             setTimeout(function(){
                 $("#home-plate").removeClass("base-on").addClass("base")
             }, 1000)
         } else if($("#home-plate").hasClass("base-on") && $("#triangle-bottom-empty").hasClass("full")){
             console.log("run for home team");
             homeScore += 1
+            largeScore();
             walkoff();
             $("#home-score").html(homeScore);
             setTimeout(function(){
